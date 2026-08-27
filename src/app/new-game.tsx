@@ -1,11 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import { CornerMotifs, DetailLine, MenuHeading, PaperScreen, SectionBrush } from '@/components/menu/MenuScaffold';
-import { ChoiceChip, SelectionCard, SummaryLine, WizardButton, WizardProgress, WorldSelectionCard } from '@/components/newgame/NewGameUI';
+import { FullArtworkHotspot, FullArtworkScreen, FullArtworkSwapButton } from '@/components/menu/FullArtworkScreen';
+import { CornerMotifs, MenuHeading, PaperScreen } from '@/components/menu/MenuScaffold';
+import { SelectionCard, SummaryLine, WizardButton, WizardProgress } from '@/components/newgame/NewGameUI';
 import { GameColors, GameFonts, SketchShadow } from '@/design/gameTheme';
-import { BACKGROUNDS, CHARACTERS, CUSTOM_PORTRAITS, CUSTOM_ROLES, TRAITS, WORLDS } from '@/game/newGameData';
+import { BACKGROUNDS, CHARACTERS, TRAITS, WORLDS } from '@/game/newGameData';
 import { useGameStore } from '@/store/gameStore';
 
 const STEP_LABELS = ['World', 'Hero', 'Past', 'Trait', 'Summary'];
@@ -18,18 +19,26 @@ const STEP_SUBTITLES = [
   'One last look before the road begins.',
 ];
 
+const WORLD_SCREEN = require('../../assets/menu-art/world-screen-clean.png');
+const WORLD_CONTINUE_A = require('../../assets/menu-art/buttons/world-continue-a-final.png');
+const WORLD_CONTINUE_B = require('../../assets/menu-art/buttons/world-continue-b-final.png');
+const HERO_SCREEN = require('../../assets/menu-art/hero-screen-clean.png');
+
+const HERO_CARD_LAYOUTS = [
+  { height: 15.5, left: 4, top: 38.8, width: 92 },
+  { height: 15, left: 4, top: 55.1, width: 92 },
+  { height: 15, left: 4, top: 70.7, width: 92 },
+] as const;
+
 export default function NewGameScreen() {
   const router = useRouter();
   const { width } = useWindowDimensions();
   const { isSaving, newGame } = useGameStore();
   const [step, setStep] = useState(0);
-  const [worldId, setWorldId] = useState<string | null>(null);
-  const [characterId, setCharacterId] = useState<string | null>(null);
+  const [worldId, setWorldId] = useState<string | null>(WORLDS[0].id);
+  const [characterId, setCharacterId] = useState<string | null>(CHARACTERS[0].id);
   const [backgroundId, setBackgroundId] = useState<string | null>(null);
   const [traitId, setTraitId] = useState<string | null>(null);
-  const [customName, setCustomName] = useState('');
-  const [customPortrait, setCustomPortrait] = useState<string | null>(null);
-  const [customRole, setCustomRole] = useState<string | null>(null);
   const [isBeginning, setIsBeginning] = useState(false);
   const isWide = width >= 560;
 
@@ -37,10 +46,9 @@ export default function NewGameScreen() {
   const character = useMemo(() => CHARACTERS.find((item) => item.id === characterId), [characterId]);
   const background = useMemo(() => BACKGROUNDS.find((item) => item.id === backgroundId), [backgroundId]);
   const trait = useMemo(() => TRAITS.find((item) => item.id === traitId), [traitId]);
-  const customReady = characterId === 'custom' && customName.trim().length > 0 && customPortrait && customRole;
-  const characterName = characterId === 'custom' ? customName.trim() : character?.name;
-  const characterRole = characterId === 'custom' ? customRole : character?.role;
-  const canContinue = [Boolean(world), Boolean(character || customReady), Boolean(background), Boolean(trait), true][step];
+  const characterName = character?.name;
+  const characterRole = character?.role;
+  const canContinue = [Boolean(world), Boolean(character), Boolean(background), Boolean(trait), true][step];
   const isBusy = isBeginning || isSaving;
 
   const goBack = () => {
@@ -60,6 +68,52 @@ export default function NewGameScreen() {
     router.replace('/game');
   };
 
+  const chooseHero = (id: string) => {
+    if (isBusy) return;
+    setCharacterId(id);
+  };
+
+  if (step === 0) {
+    return (
+      <FullArtworkScreen accessibilityLabel="Choose your world: Eldrane" source={WORLD_SCREEN}>
+        <FullArtworkHotspot accessibilityLabel="Back to main menu" disabled={isBusy} height={5.5} left={5} onPress={goBack} top={6.6} width={18} />
+        <FullArtworkHotspot accessibilityLabel="Select Eldrane" disabled={isBusy} height={48} left={8.5} onPress={() => setWorldId(WORLDS[0].id)} top={34.4} width={83} />
+        <FullArtworkSwapButton accessibilityLabel="Continue Journey" disabled={isBusy} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={85.9} width={88.01} />
+      </FullArtworkScreen>
+    );
+  }
+
+  if (step === 1) {
+    const selectedHeroIndex = CHARACTERS.findIndex((item) => item.id === characterId);
+    const selectedHeroLayout = HERO_CARD_LAYOUTS[selectedHeroIndex];
+
+    return (
+      <FullArtworkScreen accessibilityLabel="Choose your hero" source={HERO_SCREEN}>
+        <FullArtworkHotspot accessibilityLabel="Previous step" disabled={isBusy} height={9} left={5} onPress={goBack} top={5} width={20} />
+        <FullArtworkHotspot accessibilityLabel="Choose Human Huntsman" disabled={isBusy} height={HERO_CARD_LAYOUTS[0].height} left={HERO_CARD_LAYOUTS[0].left} onPress={() => chooseHero(CHARACTERS[0].id)} top={HERO_CARD_LAYOUTS[0].top} width={HERO_CARD_LAYOUTS[0].width} />
+        <FullArtworkHotspot accessibilityLabel="Choose Human Self-Taught Mage" disabled={isBusy} height={HERO_CARD_LAYOUTS[1].height} left={HERO_CARD_LAYOUTS[1].left} onPress={() => chooseHero(CHARACTERS[1].id)} top={HERO_CARD_LAYOUTS[1].top} width={HERO_CARD_LAYOUTS[1].width} />
+        <FullArtworkHotspot accessibilityLabel="Choose Elf Relic Builder" disabled={isBusy} height={HERO_CARD_LAYOUTS[2].height} left={HERO_CARD_LAYOUTS[2].left} onPress={() => chooseHero(CHARACTERS[2].id)} top={HERO_CARD_LAYOUTS[2].top} width={HERO_CARD_LAYOUTS[2].width} />
+        {selectedHeroLayout ? (
+          <View
+            pointerEvents="none"
+            style={[
+              styles.artworkSelection,
+              {
+                height: `${selectedHeroLayout.height}%`,
+                left: `${selectedHeroLayout.left}%`,
+                top: `${selectedHeroLayout.top}%`,
+                width: `${selectedHeroLayout.width}%`,
+              },
+            ]}
+          >
+            <View style={styles.artworkSelectionFlag}><Text style={styles.artworkSelectionCheck}>✓</Text></View>
+          </View>
+        ) : null}
+        <FullArtworkSwapButton accessibilityLabel="Continue with selected hero" disabled={isBusy || !characterId} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={86.3} width={88.01} />
+      </FullArtworkScreen>
+    );
+  }
+
   return (
     <PaperScreen key={step} contentStyle={styles.page}>
       <View style={styles.topRow}>
@@ -73,88 +127,6 @@ export default function NewGameScreen() {
       <MenuHeading title={STEP_TITLES[step]} subtitle={STEP_SUBTITLES[step]} />
 
       <View style={styles.content}>
-        {step === 0 ? (
-          <View accessibilityRole="radiogroup" style={styles.list}>
-            <WorldSelectionCard description={WORLDS[0].description} onPress={() => setWorldId(WORLDS[0].id)} selected={worldId === WORLDS[0].id} />
-          </View>
-        ) : null}
-
-        {step === 1 ? (
-          <>
-            <View accessibilityRole="radiogroup" style={styles.grid}>
-              {CHARACTERS.map((item) => (
-                <SelectionCard
-                  key={item.id}
-                  accent={item.accent}
-                  description={item.description}
-                  detail={`${item.species} · ${item.role}`}
-                  doodle={item.doodle}
-                  name={item.name}
-                  onPress={() => setCharacterId(item.id)}
-                  selected={characterId === item.id}
-                  style={isWide ? styles.gridCard : styles.fullCard}
-                />
-              ))}
-              <SelectionCard
-                accent="blue"
-                description="Name, portrait, and role only."
-                doodle="+"
-                name="Create Your Own"
-                onPress={() => setCharacterId('custom')}
-                selected={characterId === 'custom'}
-                style={isWide ? styles.gridCard : styles.fullCard}
-              />
-            </View>
-
-            {character ? (
-              <View style={[styles.characterProfile, SketchShadow]}>
-                <SectionBrush>Role on the Road</SectionBrush>
-                <Text style={styles.discoveryRole}>{character.discoveryRole}</Text>
-                <View style={styles.strengthList}>
-                  {character.strengths.map((strength) => <DetailLine key={strength} icon="—">{strength}</DetailLine>)}
-                </View>
-              </View>
-            ) : null}
-
-            {characterId === 'custom' ? (
-              <View style={[styles.customPanel, SketchShadow]}>
-                <SectionBrush>Your Wanderer</SectionBrush>
-                <Text style={styles.fieldLabel}>Name</Text>
-                <TextInput
-                  accessibilityLabel="Character name"
-                  autoCapitalize="words"
-                  maxLength={24}
-                  onChangeText={setCustomName}
-                  placeholder="Write a name..."
-                  placeholderTextColor={GameColors.lineSoft}
-                  style={styles.nameInput}
-                  value={customName}
-                />
-
-                <Text style={styles.fieldLabel}>Choose Portrait</Text>
-                <View accessibilityRole="radiogroup" style={styles.portraitRow}>
-                  {CUSTOM_PORTRAITS.map((portrait, index) => (
-                    <Pressable
-                      key={portrait}
-                      accessibilityLabel={`Portrait ${index + 1}`}
-                      accessibilityRole="radio"
-                      accessibilityState={{ checked: customPortrait === portrait }}
-                      onPress={() => setCustomPortrait(portrait)}
-                      style={({ pressed }) => [styles.portraitChoice, customPortrait === portrait && styles.portraitSelected, pressed && styles.pressed]}>
-                      <Text style={styles.portraitDoodle}>{portrait}</Text>
-                    </Pressable>
-                  ))}
-                </View>
-
-                <Text style={styles.fieldLabel}>Choose Role</Text>
-                <View accessibilityRole="radiogroup" style={styles.chipRow}>
-                  {CUSTOM_ROLES.map((role) => <ChoiceChip key={role} label={role} onPress={() => setCustomRole(role)} selected={customRole === role} />)}
-                </View>
-              </View>
-            ) : null}
-          </>
-        ) : null}
-
         {step === 2 ? (
           <View accessibilityRole="radiogroup" style={styles.grid}>
             {BACKGROUNDS.map((item) => (
@@ -190,7 +162,7 @@ export default function NewGameScreen() {
 
         {step === 4 ? (
           <View style={[styles.summaryCard, SketchShadow]}>
-            <View style={styles.summaryWash}><Text style={styles.summaryDoodle}>{customPortrait ?? character?.doodle ?? '✦'}</Text></View>
+            <View style={styles.summaryWash}><Text style={styles.summaryDoodle}>{character?.doodle ?? '✦'}</Text></View>
             <Text style={styles.summaryTitle}>{characterName}</Text>
             <Text style={styles.summarySubtitle}>The road waits. Your choices will write the rest.</Text>
             <View style={styles.summaryDetails}>
@@ -220,6 +192,9 @@ export default function NewGameScreen() {
 }
 
 const styles = StyleSheet.create({
+  artworkSelection: { backgroundColor: 'transparent', borderColor: '#72507f', borderRadius: 7, borderWidth: 3, position: 'absolute' },
+  artworkSelectionFlag: { alignItems: 'center', backgroundColor: '#684574', borderColor: '#35283c', borderWidth: 1.5, height: '28%', justifyContent: 'center', position: 'absolute', right: '2.5%', top: '-1%', width: '9%' },
+  artworkSelectionCheck: { color: '#fffaf0', fontSize: 24, fontWeight: '700', lineHeight: 28 },
   page: { paddingHorizontal: 18 },
   topRow: { minHeight: 54 },
   topBack: { alignItems: 'center', height: 48, justifyContent: 'center', left: 0, position: 'absolute', top: 0, width: 52, zIndex: 2 },

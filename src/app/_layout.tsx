@@ -30,7 +30,7 @@ export default function RootLayout() {
 
   return (
     <GameProvider>
-      <StatusBar style="dark" />
+      <StatusBar hidden />
       <Stack
         screenOptions={{
           animation: 'fade',

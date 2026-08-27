@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import type { PropsWithChildren, ReactNode } from 'react';
 import {
+  Animated,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -64,33 +66,105 @@ type SketchMenuButtonProps = {
   disabled?: boolean;
   icon: string;
   label: string;
+  mainMenu?: boolean;
   onPress?: () => void;
   showArrow?: boolean;
+  showLock?: boolean;
   subtitle?: string;
+  tilt?: 'left' | 'right' | 'none';
 };
 
 export function SketchMenuButton({
-  accent = 'green', disabled = false, icon, label, onPress, showArrow = false, subtitle,
+  accent = 'green', disabled = false, icon, label, mainMenu = false, onPress, showArrow = false,
+  showLock = false, subtitle, tilt = 'none',
 }: SketchMenuButtonProps) {
+  const [pressProgress] = useState(() => new Animated.Value(0));
+
+  const animatePress = (toValue: number) => {
+    Animated.spring(pressProgress, {
+      damping: 17,
+      mass: 0.5,
+      stiffness: 360,
+      toValue,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const surfaceTransform = {
+    transform: [
+      { translateY: pressProgress.interpolate({ inputRange: [0, 1], outputRange: [0, 3] }) },
+      { scale: pressProgress.interpolate({ inputRange: [0, 1], outputRange: [1, 0.985] }) },
+    ],
+  };
+  const iconTransform = {
+    transform: [
+      { rotate: pressProgress.interpolate({ inputRange: [0, 1], outputRange: ['-4deg', '1deg'] }) },
+      { scale: pressProgress.interpolate({ inputRange: [0, 1], outputRange: [1, 0.92] }) },
+    ],
+  };
+  const arrowTransform = {
+    transform: [{ translateX: pressProgress.interpolate({ inputRange: [0, 1], outputRange: [0, 5] }) }],
+  };
+
   return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ disabled }}
-      disabled={disabled}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.menuButton,
-        SketchShadow,
+    <Animated.View
+      style={[
+        styles.menuButtonWrap,
+        mainMenu && styles.mainMenuButtonWrap,
+        tilt === 'left' && styles.tiltLeft,
+        tilt === 'right' && styles.tiltRight,
         disabled && styles.disabled,
-        pressed && !disabled && styles.pressed,
+        surfaceTransform,
       ]}>
-      <View style={[styles.buttonIconWash, accentStyles[accent]]}><Text style={styles.buttonIcon}>{icon}</Text></View>
-      <View style={styles.buttonCopy}>
-        <Text style={styles.buttonLabel}>{label}</Text>
-        {subtitle ? <Text style={styles.buttonSubtitle}>{subtitle}</Text> : null}
-      </View>
-      {showArrow ? <Text style={styles.arrow}>→</Text> : null}
-    </Pressable>
+      <View pointerEvents="none" style={[styles.roughBorderOffset, mainMenu && styles.mainRoughBorderOffset]} />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityState={{ disabled }}
+        disabled={disabled}
+        onPress={onPress}
+        onPressIn={() => animatePress(1)}
+        onPressOut={() => animatePress(0)}
+        style={({ pressed }) => [
+          styles.menuButton,
+          mainMenu && styles.mainMenuButton,
+          SketchShadow,
+          pressed && !disabled && styles.buttonPressed,
+        ]}>
+        {mainMenu ? <View pointerEvents="none" style={styles.mainInnerBorder} /> : null}
+        <Animated.View style={[styles.buttonIconWash, mainMenu && styles.mainButtonIconWash, accentStyles[accent], iconTransform]}>
+          <View pointerEvents="none" style={[styles.washBleed, accentStyles[accent]]} />
+          <Text style={[styles.buttonIcon, mainMenu && styles.mainButtonIcon]}>{icon}</Text>
+        </Animated.View>
+        <View style={[styles.buttonCopy, mainMenu && styles.mainButtonCopy]}>
+          <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.82} style={[styles.buttonLabel, mainMenu && styles.mainButtonLabel]}>{label}</Text>
+          {subtitle ? <Text style={[styles.buttonSubtitle, mainMenu && styles.mainButtonSubtitle]}>{subtitle}</Text> : null}
+        </View>
+        {showArrow ? <Animated.Text style={[styles.arrow, mainMenu && styles.mainArrow, arrowTransform]}>→</Animated.Text> : null}
+        {mainMenu ? (
+          <View pointerEvents="none" style={styles.sideOrnament}>
+            <View style={styles.sideOrnamentLine} />
+            <Text style={styles.sideOrnamentDiamond}>◇</Text>
+            <View style={styles.sideOrnamentLine} />
+          </View>
+        ) : null}
+        {mainMenu && showLock ? (
+          <View pointerEvents="none" style={styles.lockBanner}>
+            <Text style={styles.lockIcon}>▣</Text>
+            <View style={styles.lockBannerPoint} />
+          </View>
+        ) : null}
+        <View pointerEvents="none" style={styles.inkNotchLeft} />
+        <View pointerEvents="none" style={styles.inkNotchRight} />
+        {mainMenu ? (
+          <>
+            <View pointerEvents="none" style={[styles.cornerStroke, styles.cornerTopLeft]} />
+            <View pointerEvents="none" style={[styles.cornerStroke, styles.cornerTopRight]} />
+            <View pointerEvents="none" style={[styles.cornerStroke, styles.cornerBottomLeft]} />
+            <View pointerEvents="none" style={[styles.cornerStroke, styles.cornerBottomRight]} />
+          </>
+        ) : null}
+      </Pressable>
+    </Animated.View>
   );
 }
 
@@ -184,25 +258,124 @@ const styles = StyleSheet.create({
   rule: { backgroundColor: GameColors.lineSoft, height: 1, width: 78 },
   diamond: { color: GameColors.ink, fontSize: 15 },
   subtitle: { color: GameColors.inkMuted, fontFamily: GameFonts.hand, fontSize: 16, letterSpacing: 0.5, marginTop: 9, textAlign: 'center' },
+  menuButtonWrap: {
+    minHeight: 70,
+    position: 'relative',
+    width: '100%',
+  },
+  mainMenuButtonWrap: { minHeight: 84 },
+  tiltLeft: { transform: [{ rotate: '-0.18deg' }] },
+  tiltRight: { transform: [{ rotate: '0.16deg' }] },
+  roughBorderOffset: {
+    borderColor: 'rgba(30, 28, 24, 0.42)',
+    borderRadius: 7,
+    borderWidth: 0.8,
+    bottom: -2,
+    left: 2,
+    position: 'absolute',
+    right: -1,
+    top: 2,
+    transform: [{ rotate: '0.25deg' }],
+  },
+  mainRoughBorderOffset: {
+    borderColor: 'rgba(30, 28, 24, 0.66)',
+    borderRadius: 4,
+    borderWidth: 1,
+    bottom: -3,
+    left: 2,
+    right: -2,
+    top: 3,
+  },
   menuButton: {
     alignItems: 'center',
-    backgroundColor: GameColors.paperLight,
+    backgroundColor: 'rgba(255, 249, 238, 0.92)',
     borderColor: GameColors.ink,
-    borderRadius: 8,
-    borderWidth: 1.5,
+    borderRadius: 7,
+    borderWidth: 1.4,
     flexDirection: 'row',
+    flex: 1,
     minHeight: 70,
-    paddingHorizontal: 14,
+    overflow: 'hidden',
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+  },
+  mainMenuButton: {
+    backgroundColor: 'rgba(247, 241, 230, 0.78)',
+    borderRadius: 4,
+    borderWidth: 1.7,
+    minHeight: 82,
+    paddingHorizontal: 13,
     paddingVertical: 10,
   },
-  pressed: { opacity: 0.75, transform: [{ translateY: 2 }] },
+  mainInnerBorder: {
+    borderColor: 'rgba(30, 28, 24, 0.3)',
+    borderRadius: 2,
+    borderWidth: 0.7,
+    bottom: 4,
+    left: 4,
+    position: 'absolute',
+    right: 4,
+    top: 4,
+  },
+  buttonPressed: { backgroundColor: GameColors.paperDeep },
   disabled: { opacity: 0.42 },
-  buttonIconWash: { alignItems: 'center', height: 44, justifyContent: 'center', marginRight: 14, transform: [{ rotate: '-4deg' }], width: 50 },
+  buttonIconWash: { alignItems: 'center', height: 46, justifyContent: 'center', marginRight: 16, position: 'relative', width: 52 },
+  mainButtonIconWash: { height: 58, marginLeft: 2, marginRight: 18, width: 62 },
+  washBleed: {
+    bottom: -3,
+    left: 5,
+    opacity: 0.45,
+    position: 'absolute',
+    right: -4,
+    top: 4,
+    transform: [{ rotate: '7deg' }],
+  },
   buttonIcon: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 28 },
+  mainButtonIcon: { fontFamily: GameFonts.hand, fontSize: 32, lineHeight: 38 },
   buttonCopy: { flex: 1 },
-  buttonLabel: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 31, letterSpacing: 1.3, lineHeight: 35, textTransform: 'uppercase' },
+  mainButtonCopy: { justifyContent: 'center', paddingBottom: 1 },
+  buttonLabel: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 29, letterSpacing: 1.5, lineHeight: 34, textTransform: 'uppercase' },
+  mainButtonLabel: { fontSize: 33, letterSpacing: 2, lineHeight: 35 },
   buttonSubtitle: { color: GameColors.inkMuted, fontFamily: GameFonts.hand, fontSize: 14, marginTop: 3 },
-  arrow: { color: GameColors.ink, fontFamily: GameFonts.hand, fontSize: 28, marginLeft: 8 },
+  mainButtonSubtitle: { fontSize: 13, letterSpacing: 0.25, lineHeight: 18, marginTop: 0 },
+  arrow: { color: GameColors.ink, fontFamily: GameFonts.hand, fontSize: 27, marginLeft: 8, marginRight: 2 },
+  mainArrow: { fontFamily: GameFonts.displayRegular, fontSize: 40, lineHeight: 42, marginLeft: 6, marginRight: 25 },
+  sideOrnament: { alignItems: 'center', bottom: 13, justifyContent: 'center', position: 'absolute', right: 11, top: 13, width: 9 },
+  sideOrnamentLine: { backgroundColor: GameColors.inkMuted, flex: 1, opacity: 0.65, width: 1 },
+  sideOrnamentDiamond: { color: GameColors.ink, fontFamily: GameFonts.hand, fontSize: 10, lineHeight: 12 },
+  lockBanner: {
+    alignItems: 'center',
+    backgroundColor: GameColors.paperDeep,
+    borderColor: GameColors.inkMuted,
+    borderWidth: 1,
+    height: 28,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 13,
+    top: -1,
+    width: 24,
+    zIndex: 4,
+  },
+  lockIcon: { color: GameColors.inkMuted, fontFamily: GameFonts.handBold, fontSize: 12, lineHeight: 15 },
+  lockBannerPoint: {
+    backgroundColor: GameColors.paperDeep,
+    borderBottomColor: GameColors.inkMuted,
+    borderBottomWidth: 1,
+    borderRightColor: GameColors.inkMuted,
+    borderRightWidth: 1,
+    bottom: -5,
+    height: 10,
+    position: 'absolute',
+    transform: [{ rotate: '45deg' }],
+    width: 10,
+  },
+  cornerStroke: { backgroundColor: GameColors.ink, height: 1, opacity: 0.75, position: 'absolute', width: 11 },
+  cornerTopLeft: { left: 0, top: 4, transform: [{ rotate: '-42deg' }] },
+  cornerTopRight: { right: 0, top: 4, transform: [{ rotate: '42deg' }] },
+  cornerBottomLeft: { bottom: 4, left: 0, transform: [{ rotate: '42deg' }] },
+  cornerBottomRight: { bottom: 4, right: 0, transform: [{ rotate: '-42deg' }] },
+  inkNotchLeft: { backgroundColor: GameColors.ink, height: 1, left: -1, opacity: 0.5, position: 'absolute', top: 15, transform: [{ rotate: '-12deg' }], width: 8 },
+  inkNotchRight: { backgroundColor: GameColors.ink, bottom: 11, height: 1, opacity: 0.45, position: 'absolute', right: -2, transform: [{ rotate: '9deg' }], width: 10 },
   emblemWrap: { alignItems: 'center', justifyContent: 'center', minHeight: 132, width: 132 },
   emblemCompact: { minHeight: 92, width: 92 },
   emblemWash: {
