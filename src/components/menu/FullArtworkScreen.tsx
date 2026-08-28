@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from 'react';
+import { type PropsWithChildren, useRef } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, useWindowDimensions, View, type ImageSourcePropType } from 'react-native';
 
 import { GameColors } from '@/design/gameTheme';
@@ -18,6 +18,7 @@ export type FullArtworkHotspotProps = {
 
 type FullArtworkSwapButtonProps = FullArtworkHotspotProps & {
   normalSource: ImageSourcePropType;
+  onAssetsLoaded?: () => void;
   pressedSource: ImageSourcePropType;
 };
 
@@ -38,7 +39,18 @@ export function FullArtworkHotspot({ accessibilityLabel, disabled = false, heigh
   );
 }
 
-export function FullArtworkSwapButton({ accessibilityLabel, disabled = false, height, left, normalSource, onPress, pressedSource, top, width }: FullArtworkSwapButtonProps) {
+export function FullArtworkSwapButton({ accessibilityLabel, disabled = false, height, left, normalSource, onAssetsLoaded, onPress, pressedSource, top, width }: FullArtworkSwapButtonProps) {
+  const loadedImages = useRef(new Set<'normal' | 'pressed'>());
+  const hasReportedReady = useRef(false);
+
+  const handleImageLoad = (image: 'normal' | 'pressed') => {
+    loadedImages.current.add(image);
+    if (loadedImages.current.size === 2 && !hasReportedReady.current) {
+      hasReportedReady.current = true;
+      onAssetsLoaded?.();
+    }
+  };
+
   return (
     <Pressable
       accessibilityLabel={accessibilityLabel}
@@ -50,24 +62,24 @@ export function FullArtworkSwapButton({ accessibilityLabel, disabled = false, he
     >
       {({ pressed }) => (
         <>
-          <Image fadeDuration={0} resizeMode="stretch" source={normalSource} style={[styles.swapImage, pressed && styles.swapImageHidden]} />
-          <Image fadeDuration={0} resizeMode="stretch" source={pressedSource} style={[styles.swapImage, !pressed && styles.swapImageHidden]} />
+          <Image fadeDuration={0} onLoad={() => handleImageLoad('normal')} resizeMode="stretch" source={normalSource} style={[styles.swapImage, pressed && styles.swapImageHidden]} />
+          <Image fadeDuration={0} onLoad={() => handleImageLoad('pressed')} resizeMode="stretch" source={pressedSource} style={[styles.swapImage, !pressed && styles.swapImageHidden]} />
         </>
       )}
     </Pressable>
   );
 }
 
-export function FullArtworkScreen({ accessibilityLabel, children, source }: PropsWithChildren<{ accessibilityLabel: string; source: ImageSourcePropType }>) {
+export function FullArtworkScreen({ accessibilityLabel, artworkHeight = ARTWORK_HEIGHT, artworkWidth = ARTWORK_WIDTH, children, onArtworkLoad, source }: PropsWithChildren<{ accessibilityLabel: string; artworkHeight?: number; artworkWidth?: number; onArtworkLoad?: () => void; source: ImageSourcePropType }>) {
   const { width } = useWindowDimensions();
-  const pageWidth = Math.min(width, ARTWORK_WIDTH);
-  const pageHeight = pageWidth * ARTWORK_HEIGHT / ARTWORK_WIDTH;
+  const pageWidth = Math.min(width, artworkWidth);
+  const pageHeight = pageWidth * artworkHeight / artworkWidth;
 
   return (
     <View style={styles.screen}>
-      <ScrollView alwaysBounceVertical bounces contentContainerStyle={styles.scrollContent} decelerationRate="fast" overScrollMode="always" showsVerticalScrollIndicator={false}>
+      <ScrollView alwaysBounceVertical={false} bounces={false} contentContainerStyle={styles.scrollContent} decelerationRate="fast" overScrollMode="never" showsVerticalScrollIndicator={false}>
         <View style={[styles.page, { height: pageHeight, width: pageWidth }]}>
-          <Image accessibilityLabel={accessibilityLabel} resizeMode="stretch" source={source} style={styles.image} />
+          <Image accessibilityLabel={accessibilityLabel} fadeDuration={0} onLoad={onArtworkLoad} resizeMode="stretch" source={source} style={styles.image} />
           {children}
         </View>
       </ScrollView>

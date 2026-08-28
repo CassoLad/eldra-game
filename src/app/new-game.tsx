@@ -1,20 +1,19 @@
 import { useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useMemo, useRef, useState } from 'react';
+import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { FullArtworkHotspot, FullArtworkScreen, FullArtworkSwapButton } from '@/components/menu/FullArtworkScreen';
 import { CornerMotifs, MenuHeading, PaperScreen } from '@/components/menu/MenuScaffold';
-import { SelectionCard, SummaryLine, WizardButton, WizardProgress } from '@/components/newgame/NewGameUI';
+import { SummaryLine, WizardButton, WizardProgress } from '@/components/newgame/NewGameUI';
 import { GameColors, GameFonts, SketchShadow } from '@/design/gameTheme';
-import { BACKGROUNDS, CHARACTERS, TRAITS, WORLDS } from '@/game/newGameData';
+import { CHARACTERS, TRAITS, WORLDS } from '@/game/newGameData';
 import { useGameStore } from '@/store/gameStore';
 
-const STEP_LABELS = ['World', 'Hero', 'Past', 'Trait', 'Summary'];
-const STEP_TITLES = ['Choose Your World', 'Choose Your Character', 'Choose Background', 'Choose Trait', 'Journey Summary'];
+const STEP_LABELS = ['World', 'Hero', 'Trait', 'Summary'];
+const STEP_TITLES = ['Choose Your World', 'Choose Your Character', 'Choose Trait', 'Journey Summary'];
 const STEP_SUBTITLES = [
   undefined,
   'Every journey needs a wanderer.',
-  'What life did you leave behind?',
   'What quality guides your choices?',
   'One last look before the road begins.',
 ];
@@ -23,6 +22,7 @@ const WORLD_SCREEN = require('../../assets/menu-art/world-screen-clean.png');
 const WORLD_CONTINUE_A = require('../../assets/menu-art/buttons/world-continue-a-final.png');
 const WORLD_CONTINUE_B = require('../../assets/menu-art/buttons/world-continue-b-final.png');
 const HERO_SCREEN = require('../../assets/menu-art/hero-screen-clean.png');
+const TRAIT_SCREEN = require('../../assets/menu-art/trait-screen-final.png');
 
 const HERO_CARD_LAYOUTS = [
   { height: 15.5, left: 4, top: 38.8, width: 92 },
@@ -30,26 +30,47 @@ const HERO_CARD_LAYOUTS = [
   { height: 15, left: 4, top: 70.7, width: 92 },
 ] as const;
 
+const TRAIT_CARD_LAYOUTS = [
+  { height: 10.8, left: 14.8, top: 44.8, width: 70.4 },
+  { height: 10.8, left: 14.8, top: 57.7, width: 70.4 },
+  { height: 10.8, left: 14.8, top: 70.3, width: 70.4 },
+  { height: 10.8, left: 14.8, top: 82.9, width: 70.4 },
+] as const;
+
 export default function NewGameScreen() {
   const router = useRouter();
-  const { width } = useWindowDimensions();
   const { isSaving, newGame } = useGameStore();
   const [step, setStep] = useState(0);
   const [worldId, setWorldId] = useState<string | null>(WORLDS[0].id);
   const [characterId, setCharacterId] = useState<string | null>(CHARACTERS[0].id);
-  const [backgroundId, setBackgroundId] = useState<string | null>(null);
   const [traitId, setTraitId] = useState<string | null>(null);
   const [isBeginning, setIsBeginning] = useState(false);
-  const isWide = width >= 560;
-
+  const [isWorldScreenReady, setIsWorldScreenReady] = useState(false);
+  const [isHeroScreenReady, setIsHeroScreenReady] = useState(false);
+  const [isTraitScreenReady, setIsTraitScreenReady] = useState(false);
+  const loadedWorldAssetGroups = useRef(new Set<string>());
+  const loadedHeroAssetGroups = useRef(new Set<string>());
   const world = useMemo(() => WORLDS.find((item) => item.id === worldId), [worldId]);
   const character = useMemo(() => CHARACTERS.find((item) => item.id === characterId), [characterId]);
-  const background = useMemo(() => BACKGROUNDS.find((item) => item.id === backgroundId), [backgroundId]);
   const trait = useMemo(() => TRAITS.find((item) => item.id === traitId), [traitId]);
   const characterName = character?.name;
   const characterRole = character?.role;
-  const canContinue = [Boolean(world), Boolean(character), Boolean(background), Boolean(trait), true][step];
+  const canContinue = [Boolean(world), Boolean(character), Boolean(trait), true][step];
   const isBusy = isBeginning || isSaving;
+
+  const markWorldAssetGroupLoaded = (group: string) => {
+    loadedWorldAssetGroups.current.add(group);
+    if (loadedWorldAssetGroups.current.size === 2) {
+      setIsWorldScreenReady(true);
+    }
+  };
+
+  const markHeroAssetGroupLoaded = (group: string) => {
+    loadedHeroAssetGroups.current.add(group);
+    if (loadedHeroAssetGroups.current.size === 2) {
+      setIsHeroScreenReady(true);
+    }
+  };
 
   const goBack = () => {
     if (step === 0) return router.replace('/');
@@ -75,10 +96,11 @@ export default function NewGameScreen() {
 
   if (step === 0) {
     return (
-      <FullArtworkScreen accessibilityLabel="Choose your world: Eldrane" source={WORLD_SCREEN}>
+      <FullArtworkScreen accessibilityLabel="Choose your world: Eldrane" onArtworkLoad={() => markWorldAssetGroupLoaded('artwork')} source={WORLD_SCREEN}>
         <FullArtworkHotspot accessibilityLabel="Back to main menu" disabled={isBusy} height={5.5} left={5} onPress={goBack} top={6.6} width={18} />
         <FullArtworkHotspot accessibilityLabel="Select Eldrane" disabled={isBusy} height={48} left={8.5} onPress={() => setWorldId(WORLDS[0].id)} top={34.4} width={83} />
-        <FullArtworkSwapButton accessibilityLabel="Continue Journey" disabled={isBusy} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={85.9} width={88.01} />
+        <FullArtworkSwapButton accessibilityLabel="Continue Journey" disabled={isBusy} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onAssetsLoaded={() => markWorldAssetGroupLoaded('button')} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={85.9} width={88.01} />
+        {!isWorldScreenReady ? <View pointerEvents="auto" style={styles.artworkLoadingCover} /> : null}
       </FullArtworkScreen>
     );
   }
@@ -88,7 +110,8 @@ export default function NewGameScreen() {
     const selectedHeroLayout = HERO_CARD_LAYOUTS[selectedHeroIndex];
 
     return (
-      <FullArtworkScreen accessibilityLabel="Choose your hero" source={HERO_SCREEN}>
+      <FullArtworkScreen accessibilityLabel="Choose your hero" onArtworkLoad={() => markHeroAssetGroupLoaded('artwork')} source={HERO_SCREEN}>
+        <Image onLoad={() => setIsTraitScreenReady(true)} source={TRAIT_SCREEN} style={styles.hiddenPreload} />
         <FullArtworkHotspot accessibilityLabel="Previous step" disabled={isBusy} height={9} left={5} onPress={goBack} top={5} width={20} />
         <FullArtworkHotspot accessibilityLabel="Choose Human Huntsman" disabled={isBusy} height={HERO_CARD_LAYOUTS[0].height} left={HERO_CARD_LAYOUTS[0].left} onPress={() => chooseHero(CHARACTERS[0].id)} top={HERO_CARD_LAYOUTS[0].top} width={HERO_CARD_LAYOUTS[0].width} />
         <FullArtworkHotspot accessibilityLabel="Choose Human Self-Taught Mage" disabled={isBusy} height={HERO_CARD_LAYOUTS[1].height} left={HERO_CARD_LAYOUTS[1].left} onPress={() => chooseHero(CHARACTERS[1].id)} top={HERO_CARD_LAYOUTS[1].top} width={HERO_CARD_LAYOUTS[1].width} />
@@ -105,11 +128,53 @@ export default function NewGameScreen() {
                 width: `${selectedHeroLayout.width}%`,
               },
             ]}
-          >
-            <View style={styles.artworkSelectionFlag}><Text style={styles.artworkSelectionCheck}>✓</Text></View>
-          </View>
+          />
         ) : null}
-        <FullArtworkSwapButton accessibilityLabel="Continue with selected hero" disabled={isBusy || !characterId} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={86.3} width={88.01} />
+        <FullArtworkSwapButton accessibilityLabel="Continue with selected hero" disabled={isBusy || !characterId} height={8.46} left={5.99} normalSource={WORLD_CONTINUE_A} onAssetsLoaded={() => markHeroAssetGroupLoaded('button')} onPress={goNext} pressedSource={WORLD_CONTINUE_B} top={86.3} width={88.01} />
+        {!isHeroScreenReady ? <View pointerEvents="auto" style={styles.artworkLoadingCover} /> : null}
+      </FullArtworkScreen>
+    );
+  }
+
+  if (step === 2) {
+    const visibleTraits = TRAITS.slice(0, TRAIT_CARD_LAYOUTS.length);
+    const selectedTraitIndex = visibleTraits.findIndex((item) => item.id === traitId);
+    const selectedTraitLayout = TRAIT_CARD_LAYOUTS[selectedTraitIndex];
+
+    return (
+      <FullArtworkScreen accessibilityLabel="Choose your trait" artworkHeight={1844} artworkWidth={853} onArtworkLoad={() => setIsTraitScreenReady(true)} source={TRAIT_SCREEN}>
+        <FullArtworkHotspot accessibilityLabel="Previous step" disabled={isBusy} height={7} left={9} onPress={goBack} top={9.8} width={17} />
+        {visibleTraits.map((item, index) => {
+          const layout = TRAIT_CARD_LAYOUTS[index];
+          return (
+            <FullArtworkHotspot
+              accessibilityLabel={`Choose ${item.name}`}
+              disabled={isBusy}
+              height={layout.height}
+              key={item.id}
+              left={layout.left}
+              onPress={() => setTraitId(item.id)}
+              top={layout.top}
+              width={layout.width}
+            />
+          );
+        })}
+        {selectedTraitLayout ? (
+          <View
+            pointerEvents="none"
+            style={[
+              styles.artworkSelection,
+              {
+                height: `${selectedTraitLayout.height}%`,
+                left: `${selectedTraitLayout.left}%`,
+                top: `${selectedTraitLayout.top}%`,
+                width: `${selectedTraitLayout.width}%`,
+              },
+            ]}
+          />
+        ) : null}
+        <FullArtworkHotspot accessibilityLabel="Continue to summary" disabled={isBusy || !traitId} height={8} left={74} onPress={goNext} top={15.3} width={18} />
+        {!isTraitScreenReady ? <View pointerEvents="auto" style={styles.artworkLoadingCover} /> : null}
       </FullArtworkScreen>
     );
   }
@@ -127,40 +192,7 @@ export default function NewGameScreen() {
       <MenuHeading title={STEP_TITLES[step]} subtitle={STEP_SUBTITLES[step]} />
 
       <View style={styles.content}>
-        {step === 2 ? (
-          <View accessibilityRole="radiogroup" style={styles.grid}>
-            {BACKGROUNDS.map((item) => (
-              <SelectionCard
-                key={item.id}
-                accent={item.accent}
-                description={item.description}
-                doodle={item.doodle}
-                name={item.name}
-                onPress={() => setBackgroundId(item.id)}
-                selected={backgroundId === item.id}
-                style={isWide ? styles.gridCard : styles.fullCard}
-              />
-            ))}
-          </View>
-        ) : null}
-
         {step === 3 ? (
-          <View accessibilityRole="radiogroup" style={styles.list}>
-            {TRAITS.map((item) => (
-              <SelectionCard
-                key={item.id}
-                accent={item.accent}
-                description={item.description}
-                doodle={item.doodle}
-                name={item.name}
-                onPress={() => setTraitId(item.id)}
-                selected={traitId === item.id}
-              />
-            ))}
-          </View>
-        ) : null}
-
-        {step === 4 ? (
           <View style={[styles.summaryCard, SketchShadow]}>
             <View style={styles.summaryWash}><Text style={styles.summaryDoodle}>{character?.doodle ?? '✦'}</Text></View>
             <Text style={styles.summaryTitle}>{characterName}</Text>
@@ -169,7 +201,6 @@ export default function NewGameScreen() {
               <SummaryLine label="World" value={world?.name ?? '—'} />
               <SummaryLine label="Character" value={characterName ?? '—'} />
               <SummaryLine label="Role" value={characterRole ?? '—'} />
-              <SummaryLine label="Background" value={background?.name ?? '—'} />
               <SummaryLine label="Trait" value={trait?.name ?? '—'} />
             </View>
             <View style={styles.summaryRule}><View style={styles.rule} /><Text style={styles.diamond}>◇</Text><View style={styles.rule} /></View>
@@ -192,9 +223,9 @@ export default function NewGameScreen() {
 }
 
 const styles = StyleSheet.create({
+  artworkLoadingCover: { backgroundColor: GameColors.paper, bottom: 0, left: 0, position: 'absolute', right: 0, top: 0, zIndex: 100 },
   artworkSelection: { backgroundColor: 'transparent', borderColor: '#72507f', borderRadius: 7, borderWidth: 3, position: 'absolute' },
-  artworkSelectionFlag: { alignItems: 'center', backgroundColor: '#684574', borderColor: '#35283c', borderWidth: 1.5, height: '28%', justifyContent: 'center', position: 'absolute', right: '2.5%', top: '-1%', width: '9%' },
-  artworkSelectionCheck: { color: '#fffaf0', fontSize: 24, fontWeight: '700', lineHeight: 28 },
+  hiddenPreload: { height: 1, opacity: 0, position: 'absolute', width: 1 },
   page: { paddingHorizontal: 18 },
   topRow: { minHeight: 54 },
   topBack: { alignItems: 'center', height: 48, justifyContent: 'center', left: 0, position: 'absolute', top: 0, width: 52, zIndex: 2 },
