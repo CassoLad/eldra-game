@@ -1,6 +1,6 @@
 import { createContext, type PropsWithChildren, useContext, useEffect, useState } from 'react';
 
-import type { GameState, PlayerStats, StatEffects, StoryChoice } from '@/game/gameTypes';
+import type { GameState, JourneySelection, PlayerStats, StatEffects, StoryChoice } from '@/game/gameTypes';
 import { FIRST_EVENT_ID, hasStoryEvent } from '@/game/storyData';
 import { loadSavedGame, saveGame } from '@/storage/saveGame';
 
@@ -22,7 +22,7 @@ type GameStoreValue = {
   hasSave: boolean;
   isHydrating: boolean;
   isSaving: boolean;
-  newGame: () => Promise<void>;
+  newGame: (selection?: JourneySelection) => Promise<void>;
 };
 
 const GameStoreContext = createContext<GameStoreValue | null>(null);
@@ -56,13 +56,13 @@ export function GameProvider({ children }: PropsWithChildren) {
     };
   }, []);
 
-  const newGame = async () => {
+  const newGame = async (selection?: JourneySelection) => {
     setIsSaving(true);
-    const freshState = createInitialGameState();
-    setGameState(freshState);
+    const freshState = { ...createInitialGameState(), selection };
 
     try {
       await saveGame(freshState);
+      setGameState(freshState);
       setHasSave(true);
     } finally {
       setIsSaving(false);
@@ -94,6 +94,7 @@ export function GameProvider({ children }: PropsWithChildren) {
 
     setIsSaving(true);
     const nextState: GameState = {
+      ...gameState,
       currentEventId: choice.nextEventId,
       stats: applyStatEffects(gameState.stats, choice.effects),
     };

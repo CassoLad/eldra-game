@@ -1,102 +1,71 @@
 import { useRouter } from 'expo-router';
-import { useEffect, useRef } from 'react';
-import { ActivityIndicator, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-
-import { ChoiceButton } from '@/components/ChoiceButton';
-import { StatBar } from '@/components/StatBar';
-import { StoryCard } from '@/components/StoryCard';
+import { useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ArtworkCanvas, ArtworkImage, FullArtworkHotspot, useArtworkScale } from '@/components/menu/FullArtworkScreen';
 import { GameColors, GameFonts } from '@/design/gameTheme';
-import type { StoryChoice } from '@/game/gameTypes';
+import { pixelRectStyle } from '@/game/artworkLayout';
+import { LAYER_SETS } from '@/game/layerAssets';
 import { getStoryEvent } from '@/game/storyData';
 import { useGameStore } from '@/store/gameStore';
 
+const SET = LAYER_SETS.gameplay;
+const LAYERS = [...SET.layers].filter(layer => !layer.hidden).sort((a, b) => b.order - a.order);
+const SOURCES = LAYERS.map(layer => layer.source);
+
 export default function GameScreen() {
   const router = useRouter();
-  const scrollRef = useRef<ScrollView>(null);
-  const { applyChoice, gameState, hasSave, isHydrating, isSaving } = useGameStore();
-  const storyEvent = getStoryEvent(gameState.currentEventId);
-
-  useEffect(() => {
-    if (!isHydrating && !hasSave) router.replace('/');
-  }, [hasSave, isHydrating, router]);
-
-  const handleChoice = async (choice: StoryChoice) => {
-    await applyChoice(choice);
-    scrollRef.current?.scrollTo({ animated: true, y: 0 });
-  };
-
-  if (isHydrating || !hasSave) {
-    return (
-      <SafeAreaView style={styles.loadingScreen}>
-        <ActivityIndicator color={GameColors.markerGreen} size="large" />
-        <Text style={styles.loadingText}>Opening your journey…</Text>
-      </SafeAreaView>
-    );
-  }
-
-  return (
-    <SafeAreaView style={styles.safeArea}>
-      <ScrollView ref={scrollRef} bounces={false} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.page}>
-          <View pointerEvents="none" style={styles.pageInnerFrame} />
-
-          <View style={styles.header}>
-            <Pressable accessibilityLabel="Return to journeys" accessibilityRole="button" onPress={() => router.replace('/journeys')} style={({ pressed }) => [styles.backButton, pressed && styles.pressed]}>
-              <Text style={styles.backText}>←</Text>
-            </Pressable>
-            <View style={styles.headerBrush}><Text style={styles.headerTitle}>ENCOUNTER</Text></View>
-            <Text style={styles.headerMark}>◇</Text>
-          </View>
-
-          <StatBar stats={gameState.stats} />
-          <StoryCard event={storyEvent} />
-
-          <View style={styles.choiceSection}>
-            <View style={styles.choiceBrush}><Text style={styles.choiceLabel}>MAKE YOUR CHOICE</Text></View>
-            <Text style={styles.choiceHint}>There are no wrong answers—only different roads.</Text>
-            <View style={styles.choices}>
-              {storyEvent.choices.map((choice, index) => (
-                <ChoiceButton
-                  key={`${storyEvent.id}-${choice.nextEventId}-${choice.text}`}
-                  choice={choice}
-                  disabled={isSaving}
-                  index={index}
-                  onPress={() => handleChoice(choice)}
-                />
-              ))}
-            </View>
-          </View>
-
-          <View style={styles.saveRow}>
-            {isSaving ? <ActivityIndicator color={GameColors.markerPlum} size="small" /> : <Text style={styles.saveMark}>✦</Text>}
-            <Text style={styles.saveText}>{isSaving ? 'Writing your choice…' : 'Your journey saves after every choice'}</Text>
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  const { hasSave, isHydrating } = useGameStore();
+  useEffect(() => { if (!isHydrating && !hasSave) router.replace('/'); }, [hasSave, isHydrating, router]);
+  if (isHydrating || !hasSave) return <View style={styles.loading}><ActivityIndicator color={GameColors.markerPlum} /></View>;
+  return <ArtworkCanvas assets={SOURCES} width={SET.width} height={SET.height}>
+    {LAYERS.map(layer => <ArtworkImage key={layer.id} source={layer.source}
+      style={[pixelRectStyle(layer.rect, SET.width, SET.height), { opacity: layer.opacity }]} />)}
+    <GameplayControls />
+  </ArtworkCanvas>;
 }
 
+function GameplayControls() {
+  const router = useRouter();
+  const scale = useArtworkScale();
+  const { gameState, applyChoice, isSaving } = useGameStore();
+  const event = getStoryEvent(gameState.currentEventId);
+  const lock = useRef(false);
+  const [notice, setNotice] = useState('');
+  const rect = (x: number, y: number, width: number, height: number) => [styles.positioned, pixelRectStyle({ x, y, width, height }, SET.width, SET.height)];
+  const choose = async (index: number) => {
+    if (lock.current || isSaving) return;
+    lock.current = true; setNotice('');
+    try { await applyChoice(event.choices[index]); }
+    catch { setNotice('Could not save. Please try again.'); }
+    finally { lock.current = false; }
+  };
+  return <>
+    <FullArtworkHotspot accessibilityLabel="Return to main menu" left={5} top={3} width={23} height={10} onPress={() => router.replace('/')} />
+    <View style={rect(140, 1600, 1160, 250)}>
+      <Text style={[styles.title, { fontSize: 43 * scale }]}>{event.title}</Text>
+      <Text style={[styles.copy, { fontSize: 32 * scale }]}>{event.text}</Text>
+    </View>
+    <View style={[...rect(185, 1970, 1060, 105), styles.center]}>
+      <Text accessibilityLiveRegion="polite" style={[styles.copy, { fontSize: 28 * scale }]}>{notice || (isSaving ? 'Saving your journey…' : `Health ${gameState.stats.health} · Gold ${gameState.stats.gold} · Reputation ${gameState.stats.reputation}`)}</Text>
+    </View>
+    {event.choices.slice(0, 4).map((choice, index) => <Pressable key={`${event.id}-${index}`} accessibilityRole="button" accessibilityLabel={choice.text}
+      disabled={isSaving} onPress={() => choose(index)} style={({ pressed }) => [
+        ...rect(index % 2 ? 750 : 71, index < 2 ? 2136 : 2335, 619, 199), styles.choice,
+        pressed && styles.pressed,
+      ]}>
+      <Text style={[styles.copy, { fontSize: 31 * scale }]}>{choice.text}</Text>
+    </Pressable>)}
+    {[97, 390, 690, 995].map((left, index) => <FullArtworkHotspot key={left} accessibilityLabel={`Inventory slot ${index + 1}`}
+      left={left / SET.width * 100} top={2640 / SET.height * 100} width={290 / SET.width * 100} height={408 / SET.height * 100}
+      onPress={() => setNotice(`Inventory slot ${index + 1} is empty.`)} />)}
+  </>;
+}
 const styles = StyleSheet.create({
-  safeArea: { backgroundColor: GameColors.paperDeep, flex: 1 },
-  scrollContent: { alignItems: 'center', flexGrow: 1, padding: 8 },
-  page: { backgroundColor: GameColors.paper, borderColor: GameColors.ink, borderRadius: 16, borderWidth: 1.5, maxWidth: 610, paddingBottom: 28, paddingHorizontal: 18, paddingTop: 16, position: 'relative', width: '100%' },
-  pageInnerFrame: { bottom: 5, borderColor: GameColors.lineSoft, borderRadius: 12, borderWidth: 0.7, left: 5, position: 'absolute', right: 5, top: 5 },
-  header: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 13, minHeight: 48, paddingHorizontal: 2 },
-  backButton: { alignItems: 'center', height: 44, justifyContent: 'center', width: 48 },
-  backText: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 43, lineHeight: 45 },
-  headerBrush: { backgroundColor: GameColors.charcoal, paddingHorizontal: 30, paddingVertical: 2, transform: [{ rotate: '-1deg' }] },
-  headerTitle: { color: GameColors.paperLight, fontFamily: GameFonts.display, fontSize: 31, letterSpacing: 2.5, lineHeight: 35 },
-  headerMark: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 24, textAlign: 'center', width: 48 },
-  choiceSection: { marginTop: 25 },
-  choiceBrush: { alignSelf: 'center', backgroundColor: GameColors.markerGreenWash, paddingHorizontal: 24, paddingVertical: 2, transform: [{ rotate: '-1deg' }] },
-  choiceLabel: { color: GameColors.ink, fontFamily: GameFonts.display, fontSize: 29, letterSpacing: 1.6, lineHeight: 33, textAlign: 'center' },
-  choiceHint: { color: GameColors.inkMuted, fontFamily: GameFonts.hand, fontSize: 12, lineHeight: 18, marginBottom: 13, marginTop: 7, textAlign: 'center' },
-  choices: { gap: 11 },
-  saveRow: { alignItems: 'center', flexDirection: 'row', gap: 7, justifyContent: 'center', marginTop: 22 },
-  saveMark: { color: GameColors.markerPlum, fontFamily: GameFonts.display, fontSize: 18 },
-  saveText: { color: GameColors.inkMuted, fontFamily: GameFonts.hand, fontSize: 10 },
-  pressed: { opacity: 0.65, transform: [{ translateY: 1 }] },
-  loadingScreen: { alignItems: 'center', backgroundColor: GameColors.paper, flex: 1, gap: 14, justifyContent: 'center' },
-  loadingText: { color: GameColors.inkMuted, fontFamily: GameFonts.hand, fontSize: 16 },
+  loading: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: GameColors.paper },
+  positioned: { position: 'absolute' },
+  title: { color: GameColors.ink, fontFamily: GameFonts.display, textAlign: 'center' },
+  copy: { color: GameColors.ink, fontFamily: GameFonts.hand, textAlign: 'center' },
+  center: { alignItems: 'center', justifyContent: 'center' },
+  choice: { justifyContent: 'center', paddingLeft: '10%', paddingRight: '2%' },
+  pressed: { backgroundColor: '#72507f22', borderColor: '#72507f', borderWidth: 1, borderRadius: 6 },
 });

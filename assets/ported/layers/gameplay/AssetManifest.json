@@ -1,0 +1,735 @@
+{
+  "schema": "eldra.gameplay-assets.v1",
+  "sourceDocument": "Untitled_Artwork.procreate",
+  "canvas": {
+    "width": 1440,
+    "height": 3120,
+    "tileSize": 256
+  },
+  "idPolicy": "ELD-GP-NNN follows the original top-to-bottom Procreate layer order.",
+  "assetCount": 24,
+  "exportedCount": 24,
+  "assets": [
+    {
+      "id": "ELD-GP-001",
+      "sourceOrderTopToBottom": 0,
+      "sourceUUID": "3C3641DF-4184-4FFC-B9AD-05CF792AD987",
+      "sourceName": "Layer 9",
+      "textContent": null,
+      "displayName": "Huntsman Full Body",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-GP-001_huntsman_full_body.png",
+      "pixelRect": {
+        "x": 241,
+        "y": 914,
+        "width": 327,
+        "height": 547
+      },
+      "anchorNormalized": {
+        "x": 0.2809027777777778,
+        "yFromTop": 0.38060897435897434
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-002",
+      "sourceOrderTopToBottom": 1,
+      "sourceUUID": "11F14A3C-3B7A-4D52-B021-7976B0DBD757",
+      "sourceName": "Layer 9",
+      "textContent": null,
+      "displayName": "Huntsman Silhouette",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-GP-002_huntsman_silhouette.png",
+      "pixelRect": {
+        "x": 250,
+        "y": 908,
+        "width": 324,
+        "height": 564
+      },
+      "anchorNormalized": {
+        "x": 0.2861111111111111,
+        "yFromTop": 0.3814102564102564
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-003",
+      "sourceOrderTopToBottom": 2,
+      "sourceUUID": "AF519FCA-03B9-41BF-B8DE-516959C85554",
+      "sourceName": "Layer 10",
+      "textContent": null,
+      "displayName": "Ambient Birds",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-GP-003_ambient_birds.png",
+      "pixelRect": {
+        "x": 368,
+        "y": 1420,
+        "width": 174,
+        "height": 50
+      },
+      "anchorNormalized": {
+        "x": 0.3159722222222222,
+        "yFromTop": 0.46314102564102566
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-004",
+      "sourceOrderTopToBottom": 3,
+      "sourceUUID": "FDE08AD3-C029-44FA-8F2D-396677C103DD",
+      "sourceName": null,
+      "textContent": "Human + Huntsman",
+      "displayName": "Character Class Text",
+      "category": "Typography/CharacterHUD",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/CharacterHUD/ELD-GP-004_character_class_text.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 206,
+        "width": 352,
+        "height": 26
+      },
+      "anchorNormalized": {
+        "x": 0.41944444444444445,
+        "yFromTop": 0.07019230769230769
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-005",
+      "sourceOrderTopToBottom": 4,
+      "sourceUUID": "35EB6129-47E8-426E-AA0A-1C1190E44399",
+      "sourceName": null,
+      "textContent": "Karl",
+      "displayName": "Character Name Text",
+      "category": "Typography/CharacterHUD",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/CharacterHUD/ELD-GP-005_character_name_text.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 117,
+        "width": 154,
+        "height": 62
+      },
+      "anchorNormalized": {
+        "x": 0.3506944444444444,
+        "yFromTop": 0.047435897435897434
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-006",
+      "sourceOrderTopToBottom": 5,
+      "sourceUUID": "500E9888-444E-41D8-9970-74E2432BA61F",
+      "sourceName": null,
+      "textContent": "Lvl 2",
+      "displayName": "Character Level Text",
+      "category": "Typography/CharacterHUD",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/CharacterHUD/ELD-GP-006_character_level_text.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 281,
+        "width": 90,
+        "height": 30
+      },
+      "anchorNormalized": {
+        "x": 0.3284722222222222,
+        "yFromTop": 0.09487179487179487
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-007",
+      "sourceOrderTopToBottom": 6,
+      "sourceUUID": "BE14E4D6-62E2-4CA9-806A-D7966B6D557E",
+      "sourceName": null,
+      "textContent": "XP  0/500",
+      "displayName": "Experience Text",
+      "category": "Typography/CharacterHUD",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/CharacterHUD/ELD-GP-007_experience_text.png",
+      "pixelRect": {
+        "x": 776,
+        "y": 337,
+        "width": 162,
+        "height": 29
+      },
+      "anchorNormalized": {
+        "x": 0.5951388888888889,
+        "yFromTop": 0.11266025641025641
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-008",
+      "sourceOrderTopToBottom": 7,
+      "sourceUUID": "926BA064-6297-4A64-90E1-4D62CDAEA576",
+      "sourceName": null,
+      "textContent": "HP 20",
+      "displayName": "Health Text",
+      "category": "Typography/CharacterHUD",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/CharacterHUD/ELD-GP-008_health_text.png",
+      "pixelRect": {
+        "x": 1074,
+        "y": 231,
+        "width": 230,
+        "height": 58
+      },
+      "anchorNormalized": {
+        "x": 0.8256944444444444,
+        "yFromTop": 0.08333333333333333
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-009",
+      "sourceOrderTopToBottom": 8,
+      "sourceUUID": "3C4DDFFE-268A-4B7A-B6C9-3FC3FFC9FBB7",
+      "sourceName": "Layer 29",
+      "textContent": null,
+      "displayName": "Experience Bar Fill",
+      "category": "UI/CharacterHUD",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterHUD/ELD-GP-009_experience_bar_fill.png",
+      "pixelRect": {
+        "x": 156,
+        "y": 1834,
+        "width": 1128,
+        "height": 392
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.6506410256410257
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-010",
+      "sourceOrderTopToBottom": 9,
+      "sourceUUID": "8D11208C-F56B-499C-B5B7-22D4F6C6F643",
+      "sourceName": "Inserted Image",
+      "textContent": null,
+      "displayName": "Health Panel Accent",
+      "category": "UI/CharacterHUD",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterHUD/ELD-GP-010_health_panel_accent.png",
+      "pixelRect": {
+        "x": 989,
+        "y": 85,
+        "width": 373,
+        "height": 350
+      },
+      "anchorNormalized": {
+        "x": 0.8163194444444445,
+        "yFromTop": 0.08333333333333333
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-011",
+      "sourceOrderTopToBottom": 10,
+      "sourceUUID": "ABD27112-2EB5-4F57-80D4-000FCD78103B",
+      "sourceName": "Layer 19",
+      "textContent": null,
+      "displayName": "Huntsman Portrait",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 19,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-GP-011_huntsman_portrait.png",
+      "pixelRect": {
+        "x": 98,
+        "y": 114,
+        "width": 275,
+        "height": 282
+      },
+      "anchorNormalized": {
+        "x": 0.16354166666666667,
+        "yFromTop": 0.08173076923076923
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-012",
+      "sourceOrderTopToBottom": 11,
+      "sourceUUID": "70178BB9-DFBC-4E7B-B98B-97DB0072649F",
+      "sourceName": "Layer 17",
+      "textContent": null,
+      "displayName": "Portrait Frame",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-GP-012_portrait_frame.png",
+      "pixelRect": {
+        "x": 76,
+        "y": 100,
+        "width": 330,
+        "height": 303
+      },
+      "anchorNormalized": {
+        "x": 0.1673611111111111,
+        "yFromTop": 0.08060897435897436
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-013",
+      "sourceOrderTopToBottom": 12,
+      "sourceUUID": "C4C9D6F0-1393-485E-A77A-EB94C858E4E4",
+      "sourceName": "Layer 17",
+      "textContent": null,
+      "displayName": "Portrait Selection Shadow",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-GP-013_portrait_selection_shadow.png",
+      "pixelRect": {
+        "x": 64,
+        "y": 89,
+        "width": 353,
+        "height": 325
+      },
+      "anchorNormalized": {
+        "x": 0.16701388888888888,
+        "yFromTop": 0.08060897435897436
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-014",
+      "sourceOrderTopToBottom": 13,
+      "sourceUUID": "F6175619-43F7-4394-8C19-63E4F1E0D032",
+      "sourceName": "Layer 21",
+      "textContent": null,
+      "displayName": "Section Divider Bar",
+      "category": "UI/Controls",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 0.7732076644897461,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/Controls/ELD-GP-014_section_divider_bar.png",
+      "pixelRect": {
+        "x": 412,
+        "y": 293,
+        "width": 355,
+        "height": 114
+      },
+      "anchorNormalized": {
+        "x": 0.409375,
+        "yFromTop": 0.11217948717948718
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-015",
+      "sourceOrderTopToBottom": 14,
+      "sourceUUID": "C952FDD9-60A5-418F-BD95-5C986F800AC2",
+      "sourceName": "Layer 15",
+      "textContent": null,
+      "displayName": "Lower Control Panel",
+      "category": "UI/Controls",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/Controls/ELD-GP-015_lower_control_panel.png",
+      "pixelRect": {
+        "x": 11,
+        "y": 34,
+        "width": 1429,
+        "height": 2610
+      },
+      "anchorNormalized": {
+        "x": 0.5038194444444445,
+        "yFromTop": 0.42916666666666664
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-016",
+      "sourceOrderTopToBottom": 15,
+      "sourceUUID": "34949E92-9EFF-4F08-B7CD-09A12A20A783",
+      "sourceName": "Layer 13",
+      "textContent": null,
+      "displayName": "Action Option Buttons",
+      "category": "UI/Controls",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/Controls/ELD-GP-016_action_option_buttons.png",
+      "pixelRect": {
+        "x": 71,
+        "y": 2136,
+        "width": 1299,
+        "height": 398
+      },
+      "anchorNormalized": {
+        "x": 0.5003472222222223,
+        "yFromTop": 0.7483974358974359
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-017",
+      "sourceOrderTopToBottom": 16,
+      "sourceUUID": "E79D2104-B1C2-45F7-8C45-2EE34A098A9E",
+      "sourceName": "Layer 27",
+      "textContent": null,
+      "displayName": "Inventory Slot Row",
+      "category": "UI/Inventory",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/Inventory/ELD-GP-017_inventory_slot_row.png",
+      "pixelRect": {
+        "x": 97,
+        "y": 2303,
+        "width": 1238,
+        "height": 745
+      },
+      "anchorNormalized": {
+        "x": 0.49722222222222223,
+        "yFromTop": 0.8575320512820512
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-018",
+      "sourceOrderTopToBottom": 17,
+      "sourceUUID": "06BF04B2-E8CD-4F94-B954-431B4B99EDFE",
+      "sourceName": "Layer 3",
+      "textContent": null,
+      "displayName": "Gameplay Core Frame",
+      "category": "UI/Frames",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/Frames/ELD-GP-018_gameplay_core_frame.png",
+      "pixelRect": {
+        "x": 5,
+        "y": 452,
+        "width": 1430,
+        "height": 2536
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.5512820512820513
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-019",
+      "sourceOrderTopToBottom": 18,
+      "sourceUUID": "90B61BF1-C804-4F41-9FD1-F43901F0339F",
+      "sourceName": "Layer 4",
+      "textContent": null,
+      "displayName": "Forest Foreground Frame",
+      "category": "Environment/Forest",
+      "groupPath": [
+        "Forest Template 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/Forest/ELD-GP-019_forest_foreground_frame.png",
+      "pixelRect": {
+        "x": 35,
+        "y": 236,
+        "width": 1382,
+        "height": 1617
+      },
+      "anchorNormalized": {
+        "x": 0.5041666666666667,
+        "yFromTop": 0.334775641025641
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-020",
+      "sourceOrderTopToBottom": 19,
+      "sourceUUID": "3E6403B4-0891-433A-AD68-F5BA016CE1BA",
+      "sourceName": "Inserted Image",
+      "textContent": null,
+      "displayName": "Encounter Ground Overlay",
+      "category": "Environment/Forest",
+      "groupPath": [
+        "Forest Template 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/Forest/ELD-GP-020_encounter_ground_overlay.png",
+      "pixelRect": {
+        "x": 435,
+        "y": 984,
+        "width": 825,
+        "height": 510
+      },
+      "anchorNormalized": {
+        "x": 0.5885416666666666,
+        "yFromTop": 0.3971153846153846
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-021",
+      "sourceOrderTopToBottom": 20,
+      "sourceUUID": "B394E4C2-B933-47FF-B25B-A0771C60ED03",
+      "sourceName": "Layer 7",
+      "textContent": null,
+      "displayName": "Forest Ground",
+      "category": "Environment/Forest",
+      "groupPath": [
+        "Forest Template 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/Forest/ELD-GP-021_forest_ground.png",
+      "pixelRect": {
+        "x": 85,
+        "y": 392,
+        "width": 1337,
+        "height": 1261
+      },
+      "anchorNormalized": {
+        "x": 0.5232638888888889,
+        "yFromTop": 0.327724358974359
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-022",
+      "sourceOrderTopToBottom": 21,
+      "sourceUUID": "C62C7F50-4133-4B83-9DD1-F71ACE52CB90",
+      "sourceName": "Layer 6",
+      "textContent": null,
+      "displayName": "Clouds And Birds",
+      "category": "Environment/Forest",
+      "groupPath": [
+        "Forest Template 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/Forest/ELD-GP-022_clouds_and_birds.png",
+      "pixelRect": {
+        "x": 460,
+        "y": 552,
+        "width": 492,
+        "height": 360
+      },
+      "anchorNormalized": {
+        "x": 0.49027777777777776,
+        "yFromTop": 0.23461538461538461
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-023",
+      "sourceOrderTopToBottom": 22,
+      "sourceUUID": "CB3FC556-B6A5-4208-96C2-FB116615D044",
+      "sourceName": "Layer 5",
+      "textContent": null,
+      "displayName": "Sky",
+      "category": "Environment/Forest",
+      "groupPath": [
+        "Forest Template 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/Forest/ELD-GP-023_sky.png",
+      "pixelRect": {
+        "x": 199,
+        "y": 473,
+        "width": 1095,
+        "height": 530
+      },
+      "anchorNormalized": {
+        "x": 0.5184027777777778,
+        "yFromTop": 0.23653846153846153
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-GP-024",
+      "sourceOrderTopToBottom": 23,
+      "sourceUUID": "D398F5BE-20CD-43C6-B4D0-AA18FBF6E99F",
+      "sourceName": "Layer 29",
+      "textContent": null,
+      "displayName": "Parchment Background",
+      "category": "Backgrounds",
+      "groupPath": [],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Backgrounds/ELD-GP-024_parchment_background.png",
+      "pixelRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3120
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.5
+      },
+      "hasTransparency": false
+    }
+  ]
+}

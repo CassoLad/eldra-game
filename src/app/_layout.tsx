@@ -33,7 +33,7 @@ export default function RootLayout() {
       <StatusBar hidden />
       <Stack
         screenOptions={{
-          animation: 'fade',
+          animation: 'none',
           contentStyle: { backgroundColor: GameColors.paper },
           headerShown: false,
         }}>

@@ -20,7 +20,7 @@ export function PaperScreen({
 }: PropsWithChildren<{ contentStyle?: StyleProp<ViewStyle> }>) {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+      <ScrollView bounces={false} alwaysBounceVertical={false} overScrollMode="never" contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={[styles.page, contentStyle]}>
           <View pointerEvents="none" style={styles.innerFrame} />
           {children}

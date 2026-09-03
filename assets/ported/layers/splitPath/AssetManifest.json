@@ -1,0 +1,704 @@
+{
+  "schema": "eldra.layered-asset-set.v1",
+  "setName": "Eldra Split Path Encounter",
+  "sourceDocument": "Untitled_Artwork (2).procreate",
+  "canvas": {
+    "width": 1440,
+    "height": 3120,
+    "tileSize": 256
+  },
+  "idPolicy": "ELD-ENC-SP-NNN follows the original top-to-bottom Procreate layer order.",
+  "assetCount": 23,
+  "exportedCount": 23,
+  "assets": [
+    {
+      "id": "ELD-ENC-SP-001",
+      "sourceOrderTopToBottom": 0,
+      "sourceUUID": "3C3641DF-4184-4FFC-B9AD-05CF792AD987",
+      "sourceName": "Layer 9",
+      "textContent": null,
+      "displayName": "Layer 9",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 0.9091971516609192,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-ENC-SP-001_layer_9.png",
+      "pixelRect": {
+        "x": 444,
+        "y": 917,
+        "width": 327,
+        "height": 547
+      },
+      "anchorNormalized": {
+        "x": 0.421875,
+        "yFromTop": 0.3815705128205128
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-002",
+      "sourceOrderTopToBottom": 1,
+      "sourceUUID": "11F14A3C-3B7A-4D52-B021-7976B0DBD757",
+      "sourceName": "Layer 9",
+      "textContent": null,
+      "displayName": "Layer 9",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-ENC-SP-002_layer_9_02.png",
+      "pixelRect": {
+        "x": 453,
+        "y": 911,
+        "width": 324,
+        "height": 564
+      },
+      "anchorNormalized": {
+        "x": 0.4270833333333333,
+        "yFromTop": 0.38237179487179485
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-003",
+      "sourceOrderTopToBottom": 2,
+      "sourceUUID": "AF519FCA-03B9-41BF-B8DE-516959C85554",
+      "sourceName": "Layer 10",
+      "textContent": null,
+      "displayName": "Layer 10",
+      "category": "Characters/Huntsman",
+      "groupPath": [
+        "Huntsman 1.0"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-ENC-SP-003_layer_10.png",
+      "pixelRect": {
+        "x": 571,
+        "y": 1423,
+        "width": 174,
+        "height": 50
+      },
+      "anchorNormalized": {
+        "x": 0.45694444444444443,
+        "yFromTop": 0.4641025641025641
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-004",
+      "sourceOrderTopToBottom": 3,
+      "sourceUUID": "FDE08AD3-C029-44FA-8F2D-396677C103DD",
+      "sourceName": null,
+      "textContent": "Human + Huntsman",
+      "displayName": "Human + Huntsman",
+      "category": "Typography",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/ELD-ENC-SP-004_human_huntsman.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 206,
+        "width": 352,
+        "height": 26
+      },
+      "anchorNormalized": {
+        "x": 0.41944444444444445,
+        "yFromTop": 0.07019230769230769
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-005",
+      "sourceOrderTopToBottom": 4,
+      "sourceUUID": "35EB6129-47E8-426E-AA0A-1C1190E44399",
+      "sourceName": null,
+      "textContent": "Karl",
+      "displayName": "Karl",
+      "category": "Typography",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/ELD-ENC-SP-005_karl.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 117,
+        "width": 154,
+        "height": 62
+      },
+      "anchorNormalized": {
+        "x": 0.3506944444444444,
+        "yFromTop": 0.047435897435897434
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-006",
+      "sourceOrderTopToBottom": 5,
+      "sourceUUID": "500E9888-444E-41D8-9970-74E2432BA61F",
+      "sourceName": null,
+      "textContent": "Lvl 2",
+      "displayName": "Lvl 2",
+      "category": "Typography",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/ELD-ENC-SP-006_lvl_2.png",
+      "pixelRect": {
+        "x": 428,
+        "y": 281,
+        "width": 90,
+        "height": 30
+      },
+      "anchorNormalized": {
+        "x": 0.3284722222222222,
+        "yFromTop": 0.09487179487179487
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-007",
+      "sourceOrderTopToBottom": 6,
+      "sourceUUID": "BE14E4D6-62E2-4CA9-806A-D7966B6D557E",
+      "sourceName": null,
+      "textContent": "XP  0/500",
+      "displayName": "XP  0/500",
+      "category": "Typography",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/ELD-ENC-SP-007_xp_0_500.png",
+      "pixelRect": {
+        "x": 776,
+        "y": 337,
+        "width": 162,
+        "height": 29
+      },
+      "anchorNormalized": {
+        "x": 0.5951388888888889,
+        "yFromTop": 0.11266025641025641
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-008",
+      "sourceOrderTopToBottom": 7,
+      "sourceUUID": "926BA064-6297-4A64-90E1-4D62CDAEA576",
+      "sourceName": null,
+      "textContent": "HP 20",
+      "displayName": "HP 20",
+      "category": "Typography",
+      "groupPath": [
+        "Words"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Typography/ELD-ENC-SP-008_hp_20.png",
+      "pixelRect": {
+        "x": 1074,
+        "y": 231,
+        "width": 230,
+        "height": 58
+      },
+      "anchorNormalized": {
+        "x": 0.8256944444444444,
+        "yFromTop": 0.08333333333333333
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-009",
+      "sourceOrderTopToBottom": 8,
+      "sourceUUID": "3C4DDFFE-268A-4B7A-B6C9-3FC3FFC9FBB7",
+      "sourceName": "Layer 29",
+      "textContent": null,
+      "displayName": "Layer 29",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-009_layer_29.png",
+      "pixelRect": {
+        "x": 156,
+        "y": 1834,
+        "width": 1128,
+        "height": 392
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.6506410256410257
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-010",
+      "sourceOrderTopToBottom": 9,
+      "sourceUUID": "8D11208C-F56B-499C-B5B7-22D4F6C6F643",
+      "sourceName": "Inserted Image",
+      "textContent": null,
+      "displayName": "Inserted Image",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-010_inserted_image.png",
+      "pixelRect": {
+        "x": 989,
+        "y": 85,
+        "width": 373,
+        "height": 350
+      },
+      "anchorNormalized": {
+        "x": 0.8163194444444445,
+        "yFromTop": 0.08333333333333333
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-011",
+      "sourceOrderTopToBottom": 10,
+      "sourceUUID": "ABD27112-2EB5-4F57-80D4-000FCD78103B",
+      "sourceName": "Layer 19",
+      "textContent": null,
+      "displayName": "Layer 19",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 19,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-ENC-SP-011_layer_19.png",
+      "pixelRect": {
+        "x": 98,
+        "y": 114,
+        "width": 275,
+        "height": 282
+      },
+      "anchorNormalized": {
+        "x": 0.16354166666666667,
+        "yFromTop": 0.08173076923076923
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-012",
+      "sourceOrderTopToBottom": 11,
+      "sourceUUID": "70178BB9-DFBC-4E7B-B98B-97DB0072649F",
+      "sourceName": "Layer 17",
+      "textContent": null,
+      "displayName": "Layer 17",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-ENC-SP-012_layer_17.png",
+      "pixelRect": {
+        "x": 76,
+        "y": 100,
+        "width": 330,
+        "height": 303
+      },
+      "anchorNormalized": {
+        "x": 0.1673611111111111,
+        "yFromTop": 0.08060897435897436
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-013",
+      "sourceOrderTopToBottom": 12,
+      "sourceUUID": "C4C9D6F0-1393-485E-A77A-EB94C858E4E4",
+      "sourceName": "Layer 17",
+      "textContent": null,
+      "displayName": "Layer 17",
+      "category": "UI/CharacterSelection",
+      "groupPath": [
+        "Core Template",
+        "Character Selected"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CharacterSelection/ELD-ENC-SP-013_layer_17_02.png",
+      "pixelRect": {
+        "x": 64,
+        "y": 89,
+        "width": 353,
+        "height": 325
+      },
+      "anchorNormalized": {
+        "x": 0.16701388888888888,
+        "yFromTop": 0.08060897435897436
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-014",
+      "sourceOrderTopToBottom": 13,
+      "sourceUUID": "F6175619-43F7-4394-8C19-63E4F1E0D032",
+      "sourceName": "Layer 21",
+      "textContent": null,
+      "displayName": "Layer 21",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 0.7732076644897461,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-014_layer_21.png",
+      "pixelRect": {
+        "x": 412,
+        "y": 293,
+        "width": 355,
+        "height": 114
+      },
+      "anchorNormalized": {
+        "x": 0.409375,
+        "yFromTop": 0.11217948717948718
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-015",
+      "sourceOrderTopToBottom": 14,
+      "sourceUUID": "C952FDD9-60A5-418F-BD95-5C986F800AC2",
+      "sourceName": "Layer 15",
+      "textContent": null,
+      "displayName": "Layer 15",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-015_layer_15.png",
+      "pixelRect": {
+        "x": 11,
+        "y": 34,
+        "width": 1429,
+        "height": 2610
+      },
+      "anchorNormalized": {
+        "x": 0.5038194444444445,
+        "yFromTop": 0.42916666666666664
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-016",
+      "sourceOrderTopToBottom": 15,
+      "sourceUUID": "34949E92-9EFF-4F08-B7CD-09A12A20A783",
+      "sourceName": "Layer 13",
+      "textContent": null,
+      "displayName": "Layer 13",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-016_layer_13.png",
+      "pixelRect": {
+        "x": 71,
+        "y": 2136,
+        "width": 1299,
+        "height": 398
+      },
+      "anchorNormalized": {
+        "x": 0.5003472222222223,
+        "yFromTop": 0.7483974358974359
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-017",
+      "sourceOrderTopToBottom": 16,
+      "sourceUUID": "E79D2104-B1C2-45F7-8C45-2EE34A098A9E",
+      "sourceName": "Layer 27",
+      "textContent": null,
+      "displayName": "Layer 27",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-017_layer_27.png",
+      "pixelRect": {
+        "x": 97,
+        "y": 2303,
+        "width": 1238,
+        "height": 745
+      },
+      "anchorNormalized": {
+        "x": 0.49722222222222223,
+        "yFromTop": 0.8575320512820512
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-018",
+      "sourceOrderTopToBottom": 17,
+      "sourceUUID": "06BF04B2-E8CD-4F94-B954-431B4B99EDFE",
+      "sourceName": "Layer 3",
+      "textContent": null,
+      "displayName": "Layer 3",
+      "category": "UI/CoreTemplate",
+      "groupPath": [
+        "Core Template"
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "UI/CoreTemplate/ELD-ENC-SP-018_layer_3.png",
+      "pixelRect": {
+        "x": 5,
+        "y": 452,
+        "width": 1430,
+        "height": 2536
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.5512820512820513
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-019",
+      "sourceOrderTopToBottom": 18,
+      "sourceUUID": "5752663F-3921-411E-B2AF-57D8199F6627",
+      "sourceName": "Layer 29",
+      "textContent": null,
+      "displayName": "Layer 29",
+      "category": "Environment/SplitPath",
+      "groupPath": [
+        "Split Path "
+      ],
+      "opacity": 0.8882341980934143,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/SplitPath/ELD-ENC-SP-019_layer_29_02.png",
+      "pixelRect": {
+        "x": 13,
+        "y": 458,
+        "width": 1427,
+        "height": 1181
+      },
+      "anchorNormalized": {
+        "x": 0.5045138888888889,
+        "yFromTop": 0.33605769230769234
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-020",
+      "sourceOrderTopToBottom": 19,
+      "sourceUUID": "F46F6EAF-E49A-4F11-A475-15770FA32340",
+      "sourceName": "Layer 27",
+      "textContent": null,
+      "displayName": "Layer 27",
+      "category": "Environment/SplitPath",
+      "groupPath": [
+        "Split Path "
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/SplitPath/ELD-ENC-SP-020_layer_27_02.png",
+      "pixelRect": {
+        "x": 120,
+        "y": 264,
+        "width": 465,
+        "height": 492
+      },
+      "anchorNormalized": {
+        "x": 0.24479166666666666,
+        "yFromTop": 0.16346153846153846
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-021",
+      "sourceOrderTopToBottom": 20,
+      "sourceUUID": "8120D4E6-9647-4798-B260-6087750D5811",
+      "sourceName": "Layer 27",
+      "textContent": null,
+      "displayName": "Layer 27",
+      "category": "Environment/SplitPath",
+      "groupPath": [
+        "Split Path "
+      ],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Environment/SplitPath/ELD-ENC-SP-021_layer_27_03.png",
+      "pixelRect": {
+        "x": 632,
+        "y": 430,
+        "width": 808,
+        "height": 568
+      },
+      "anchorNormalized": {
+        "x": 0.7194444444444444,
+        "yFromTop": 0.22884615384615384
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-022",
+      "sourceOrderTopToBottom": 21,
+      "sourceUUID": "1513946F-C156-4685-B0D2-D63765013E1C",
+      "sourceName": "Layer 26",
+      "textContent": null,
+      "displayName": "Layer 26",
+      "category": "Shared",
+      "groupPath": [],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Shared/ELD-ENC-SP-022_layer_26.png",
+      "pixelRect": {
+        "x": 39,
+        "y": 489,
+        "width": 1365,
+        "height": 1050
+      },
+      "anchorNormalized": {
+        "x": 0.5010416666666667,
+        "yFromTop": 0.325
+      },
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-SP-023",
+      "sourceOrderTopToBottom": 22,
+      "sourceUUID": "D398F5BE-20CD-43C6-B4D0-AA18FBF6E99F",
+      "sourceName": "Layer 29",
+      "textContent": null,
+      "displayName": "Layer 29",
+      "category": "Shared",
+      "groupPath": [],
+      "opacity": 1.0,
+      "hidden": true,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Shared/ELD-ENC-SP-023_layer_29_03.png",
+      "pixelRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3120
+      },
+      "anchorNormalized": {
+        "x": 0.5,
+        "yFromTop": 0.5
+      },
+      "hasTransparency": false
+    }
+  ]
+}

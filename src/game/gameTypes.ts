@@ -23,4 +23,12 @@ export type StoryEvent = {
 export type GameState = {
   currentEventId: string;
   stats: PlayerStats;
+  selection?: JourneySelection;
+};
+
+export type JourneySelection = {
+  worldId: string;
+  characterId: string;
+  traitId: string;
+  pastId: string;
 };
