@@ -8,8 +8,8 @@
     "tileSize": 256
   },
   "idPolicy": "ELD-ENC-FT-NNN follows the original top-to-bottom Procreate layer order.",
-  "assetCount": 25,
-  "exportedCount": 25,
+  "assetCount": 27,
+  "exportedCount": 27,
   "assets": [
     {
       "id": "ELD-ENC-FT-001",
@@ -17,13 +17,13 @@
       "sourceUUID": "3C3641DF-4184-4FFC-B9AD-05CF792AD987",
       "sourceName": "Layer 9",
       "textContent": null,
-      "displayName": "Layer 9",
+      "displayName": "Original Huntsman",
       "category": "Characters/Huntsman",
       "groupPath": [
         "Huntsman 1.0"
       ],
       "opacity": 1.0,
-      "hidden": false,
+      "hidden": true,
       "blendMode": 0,
       "canvasWidth": 1440,
       "canvasHeight": 3120,
@@ -47,13 +47,13 @@
       "sourceUUID": "11F14A3C-3B7A-4D52-B021-7976B0DBD757",
       "sourceName": "Layer 9",
       "textContent": null,
-      "displayName": "Layer 9",
+      "displayName": "Original Huntsman Silhouette",
       "category": "Characters/Huntsman",
       "groupPath": [
         "Huntsman 1.0"
       ],
       "opacity": 0.0012401429703459144,
-      "hidden": false,
+      "hidden": true,
       "blendMode": 0,
       "canvasWidth": 1440,
       "canvasHeight": 3120,
@@ -759,6 +759,46 @@
         "yFromTop": 0.5
       },
       "hasTransparency": false
+    },
+    {
+      "id": "ELD-ENC-FT-026",
+      "sourceOrderTopToBottom": 0,
+      "sourceUUID": "generated-huntsman-focal-outline",
+      "sourceName": "Huntsman Focal Outline",
+      "textContent": null,
+      "displayName": "Huntsman Focal Outline",
+      "category": "Characters/Huntsman",
+      "groupPath": ["Huntsman Focal Treatment"],
+      "opacity": 1.0,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-ENC-FT-026_huntsman_focal_outline.png",
+      "pixelRect": {"x": 478, "y": 946, "width": 322, "height": 539},
+      "anchorNormalized": {"x": 0.44375, "yFromTop": 0.38958333333333334},
+      "hasTransparency": true
+    },
+    {
+      "id": "ELD-ENC-FT-027",
+      "sourceOrderTopToBottom": 1,
+      "sourceUUID": "derived-huntsman-separation-shadow",
+      "sourceName": "Huntsman Separation Shadow",
+      "textContent": null,
+      "displayName": "Huntsman Separation Shadow",
+      "category": "Characters/Huntsman",
+      "groupPath": ["Huntsman Focal Treatment"],
+      "opacity": 0.22,
+      "hidden": false,
+      "blendMode": 0,
+      "canvasWidth": 1440,
+      "canvasHeight": 3120,
+      "status": "exported",
+      "file": "Characters/Huntsman/ELD-ENC-FT-027_huntsman_separation_shadow.png",
+      "pixelRect": {"x": 484, "y": 950, "width": 326, "height": 547},
+      "anchorNormalized": {"x": 0.44930555555555557, "yFromTop": 0.3921474358974359},
+      "hasTransparency": true
     }
   ]
 }

@@ -1,6 +1,4 @@
-# Eldra — Expo game
-
-The active game is back on Expo, with the latest menus and layered gameplay preserved. See [the restored-version notes](EXPO-RESTORED.md) for the current flow and asset catalogue. Unity is not required.
+# Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 

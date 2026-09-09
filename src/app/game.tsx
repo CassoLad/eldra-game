@@ -5,11 +5,17 @@ import { ArtworkCanvas, ArtworkImage, FullArtworkHotspot, useArtworkScale } from
 import { GameColors, GameFonts } from '@/design/gameTheme';
 import { pixelRectStyle } from '@/game/artworkLayout';
 import { LAYER_SETS } from '@/game/layerAssets';
+import { FOREST_TAVERN_CONSISTENCY_LAYERS, FOREST_TAVERN_CONSISTENCY_SOURCE_IDS } from '@/game/forestTavernConsistencyLayers';
 import { getStoryEvent } from '@/game/storyData';
 import { useGameStore } from '@/store/gameStore';
 
-const SET = LAYER_SETS.gameplay;
-const LAYERS = [...SET.layers].filter(layer => !layer.hidden).sort((a, b) => b.order - a.order);
+// The original starter scene remains available as LAYER_SETS.gameplay.
+// This test scene swaps only the active artwork stack to Forest Tavern.
+const SET = LAYER_SETS.forestTavern;
+const LAYERS = [
+  ...SET.layers.filter(layer => !layer.hidden && !FOREST_TAVERN_CONSISTENCY_SOURCE_IDS.has(layer.id)),
+  ...FOREST_TAVERN_CONSISTENCY_LAYERS,
+].sort((a, b) => b.order - a.order);
 const SOURCES = LAYERS.map(layer => layer.source);
 
 export default function GameScreen() {

@@ -82,8 +82,8 @@ banditsOpenField: {width:1440,height:3120,layers:[
 {...{"id":"ELD-ENC-BOF-026","displayName":"Layer 29","hidden":true,"opacity":1,"order":25,"rect":{"x":0,"y":0,"width":1440,"height":3120}},source:require("../../assets/ported/layers/banditsOpenField/Shared/ELD-ENC-BOF-026_layer_29_02.png")},
 ]},
 forestTavern: {width:1440,height:3120,layers:[
-{...{"id":"ELD-ENC-FT-001","displayName":"Layer 9","hidden":false,"opacity":1,"order":0,"rect":{"x":490,"y":966,"width":298,"height":499}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-001_layer_9.png")},
-{...{"id":"ELD-ENC-FT-002","displayName":"Layer 9","hidden":false,"opacity":0.0012401429703459144,"order":1,"rect":{"x":498,"y":960,"width":296,"height":515}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-002_layer_9_02.png")},
+{...{"id":"ELD-ENC-FT-001","displayName":"Original Huntsman","hidden":true,"opacity":1,"order":0,"rect":{"x":490,"y":966,"width":298,"height":499}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-001_layer_9.png")},
+{...{"id":"ELD-ENC-FT-002","displayName":"Original Huntsman Silhouette","hidden":true,"opacity":0.0012401429703459144,"order":1,"rect":{"x":498,"y":960,"width":296,"height":515}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-002_layer_9_02.png")},
 {...{"id":"ELD-ENC-FT-003","displayName":"Layer 10","hidden":false,"opacity":1,"order":2,"rect":{"x":606,"y":1427,"width":158,"height":46}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-003_layer_10.png")},
 {...{"id":"ELD-ENC-FT-004","displayName":"Human + Huntsman","hidden":false,"opacity":1,"order":3,"rect":{"x":428,"y":206,"width":352,"height":26}},source:require("../../assets/ported/layers/forestTavern/Typography/ELD-ENC-FT-004_human_huntsman.png")},
 {...{"id":"ELD-ENC-FT-005","displayName":"Karl","hidden":false,"opacity":1,"order":4,"rect":{"x":428,"y":117,"width":154,"height":62}},source:require("../../assets/ported/layers/forestTavern/Typography/ELD-ENC-FT-005_karl.png")},
@@ -107,5 +107,7 @@ forestTavern: {width:1440,height:3120,layers:[
 {...{"id":"ELD-ENC-FT-023","displayName":"Layer 29","hidden":false,"opacity":1,"order":22,"rect":{"x":65,"y":499,"width":778,"height":464}},source:require("../../assets/ported/layers/forestTavern/Environment/Tavern/ELD-ENC-FT-023_layer_29_02.png")},
 {...{"id":"ELD-ENC-FT-024","displayName":"Layer 26","hidden":false,"opacity":1,"order":23,"rect":{"x":39,"y":489,"width":1365,"height":1050}},source:require("../../assets/ported/layers/forestTavern/Shared/ELD-ENC-FT-024_layer_26.png")},
 {...{"id":"ELD-ENC-FT-025","displayName":"Layer 29","hidden":true,"opacity":1,"order":24,"rect":{"x":0,"y":0,"width":1440,"height":3120}},source:require("../../assets/ported/layers/forestTavern/Shared/ELD-ENC-FT-025_layer_29_03.png")},
+{...{"id":"ELD-ENC-FT-026","displayName":"Huntsman Focal Outline","hidden":false,"opacity":1,"order":0,"rect":{"x":478,"y":946,"width":322,"height":539}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-026_huntsman_focal_outline.png")},
+{...{"id":"ELD-ENC-FT-027","displayName":"Huntsman Separation Shadow","hidden":false,"opacity":0.22,"order":1,"rect":{"x":484,"y":950,"width":326,"height":547}},source:require("../../assets/ported/layers/forestTavern/Characters/Huntsman/ELD-ENC-FT-027_huntsman_separation_shadow.png")},
 ]},
 } satisfies Record<string, LayerSet>;

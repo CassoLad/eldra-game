@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "canvas": {
+    "width": 1440,
+    "height": 3120
+  },
+  "source": "Main Menu Assets (Procreate)",
+  "layers": [
+    {
+      "id": "ELD-MAIN-001",
+      "name": "outer-frame-and-header",
+      "category": "frame",
+      "tags": [
+        "frame",
+        "header",
+        "foliage",
+        "mountains"
+      ],
+      "stackIndex": 0,
+      "sourceName": "Layer 17",
+      "sourceUuid": "37E0F825-FE7B-4DE3-92D8-AD74E653B4CC",
+      "visible": true,
+      "opacity": 0.8214842081069946,
+      "blendMode": 0,
+      "tileCount": 73,
+      "file": "layer-01.png",
+      "bounds": {
+        "x": 1,
+        "y": 0,
+        "width": 1439,
+        "height": 3119
+      }
+    },
+    {
+      "id": "ELD-MAIN-002",
+      "name": "alternate-outer-frame",
+      "category": "source-variant",
+      "tags": [
+        "hidden",
+        "alternate",
+        "frame"
+      ],
+      "stackIndex": 1,
+      "sourceName": "Layer 20",
+      "sourceUuid": "1B546D13-79E4-4D0C-90F2-A4F33BDD7E53",
+      "visible": false,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 64,
+      "file": "layer-02.png",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3120
+      }
+    },
+    {
+      "id": "ELD-MAIN-003",
+      "name": "alternate-header-and-footer",
+      "category": "source-variant",
+      "tags": [
+        "hidden",
+        "alternate",
+        "header",
+        "mountains"
+      ],
+      "stackIndex": 2,
+      "sourceName": "Layer 20",
+      "sourceUuid": "FDEA58FB-D30C-4DC7-9674-1E1236348415",
+      "visible": false,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 44,
+      "file": "layer-03.png",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1335,
+        "height": 3120
+      }
+    },
+    {
+      "id": "ELD-MAIN-004",
+      "name": "new-game-button",
+      "category": "button",
+      "tags": [
+        "button",
+        "new-game",
+        "sword",
+        "pink"
+      ],
+      "stackIndex": 3,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "9C67AB77-DFF0-49A9-9A71-D49CF8FC03CE",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 8,
+      "file": "layer-04.png",
+      "bounds": {
+        "x": 293,
+        "y": 2169,
+        "width": 870,
+        "height": 266
+      }
+    },
+    {
+      "id": "ELD-MAIN-005",
+      "name": "settings-button",
+      "category": "button",
+      "tags": [
+        "button",
+        "settings",
+        "gear",
+        "gold"
+      ],
+      "stackIndex": 4,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "BBB51DE3-4886-4728-9347-DB7CBBA0F940",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 8,
+      "file": "layer-05.png",
+      "bounds": {
+        "x": 292,
+        "y": 2443,
+        "width": 860,
+        "height": 209
+      }
+    },
+    {
+      "id": "ELD-MAIN-006",
+      "name": "continue-journey-button",
+      "category": "button",
+      "tags": [
+        "button",
+        "continue",
+        "journey",
+        "gold"
+      ],
+      "stackIndex": 5,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "7DDDD824-2283-4CC2-9C0D-DDF428B762CA",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 8,
+      "file": "layer-06.png",
+      "bounds": {
+        "x": 305,
+        "y": 1674,
+        "width": 828,
+        "height": 201
+      }
+    },
+    {
+      "id": "ELD-MAIN-007",
+      "name": "load-game-button",
+      "category": "button",
+      "tags": [
+        "button",
+        "load",
+        "book",
+        "green"
+      ],
+      "stackIndex": 6,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "B8F7BC9F-70B3-4D89-85C2-084C5B566A6C",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 8,
+      "file": "layer-07.png",
+      "bounds": {
+        "x": 294,
+        "y": 1954,
+        "width": 856,
+        "height": 213
+      }
+    },
+    {
+      "id": "ELD-MAIN-008",
+      "name": "menu-content-panel",
+      "category": "frame",
+      "tags": [
+        "panel",
+        "parchment",
+        "divider"
+      ],
+      "stackIndex": 7,
+      "sourceName": "Layer 7",
+      "sourceUuid": "923769F6-A73A-44DF-BDD8-265AA24B9E53",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 70,
+      "file": "layer-08.png",
+      "bounds": {
+        "x": 0,
+        "y": 284,
+        "width": 1440,
+        "height": 2836
+      }
+    },
+    {
+      "id": "ELD-MAIN-009",
+      "name": "alternate-hero",
+      "category": "source-variant",
+      "tags": [
+        "hidden",
+        "alternate",
+        "hero",
+        "character"
+      ],
+      "stackIndex": 8,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "A513E94D-9B84-42AB-9193-262B442600C9",
+      "visible": false,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 15,
+      "file": "layer-09.png",
+      "bounds": {
+        "x": 443,
+        "y": 692,
+        "width": 653,
+        "height": 1126
+      }
+    },
+    {
+      "id": "ELD-MAIN-010",
+      "name": "hero",
+      "category": "character",
+      "tags": [
+        "hero",
+        "character",
+        "traveller"
+      ],
+      "stackIndex": 9,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "2B5941E1-1246-47D2-9DEB-B160C0988BC1",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 6,
+      "file": "layer-10.png",
+      "bounds": {
+        "x": 576,
+        "y": 897,
+        "width": 290,
+        "height": 572
+      }
+    },
+    {
+      "id": "ELD-MAIN-011",
+      "name": "foreground-forest-frame",
+      "category": "environment",
+      "tags": [
+        "forest",
+        "foreground",
+        "trees",
+        "flowers"
+      ],
+      "stackIndex": 10,
+      "sourceName": "Layer 10",
+      "sourceUuid": "70C58BBE-7319-43AA-AD80-3D7B5B18817C",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 36,
+      "file": "layer-11.png",
+      "bounds": {
+        "x": 28,
+        "y": 347,
+        "width": 1412,
+        "height": 1330
+      }
+    },
+    {
+      "id": "ELD-MAIN-012",
+      "name": "path-and-meadow",
+      "category": "environment",
+      "tags": [
+        "path",
+        "meadow",
+        "ground"
+      ],
+      "stackIndex": 11,
+      "sourceName": "Layer 4",
+      "sourceUuid": "F9EFC409-B420-4AE6-BA3C-34E70C179CD6",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 37,
+      "file": "layer-12.png",
+      "bounds": {
+        "x": 249,
+        "y": 270,
+        "width": 1033,
+        "height": 1840
+      }
+    },
+    {
+      "id": "ELD-MAIN-013",
+      "name": "castle-and-mountains",
+      "category": "environment",
+      "tags": [
+        "castle",
+        "mountains",
+        "background"
+      ],
+      "stackIndex": 12,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "6E114349-5F59-43E3-8313-173FA23947B7",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 20,
+      "file": "layer-13.png",
+      "bounds": {
+        "x": 100,
+        "y": 383,
+        "width": 1114,
+        "height": 891
+      }
+    },
+    {
+      "id": "ELD-MAIN-014",
+      "name": "clouds-and-birds",
+      "category": "environment",
+      "tags": [
+        "clouds",
+        "birds",
+        "sky-detail"
+      ],
+      "stackIndex": 13,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "E063A536-11DF-49C2-B7B8-70AE214BB849",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 9,
+      "file": "layer-14.png",
+      "bounds": {
+        "x": 234,
+        "y": 462,
+        "width": 734,
+        "height": 464
+      }
+    },
+    {
+      "id": "ELD-MAIN-015",
+      "name": "blue-sky",
+      "category": "environment",
+      "tags": [
+        "sky",
+        "texture",
+        "blue"
+      ],
+      "stackIndex": 14,
+      "sourceName": "Inserted Image",
+      "sourceUuid": "A424040E-2394-439B-BCF0-945ECE684F61",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 36,
+      "file": "layer-15.png",
+      "bounds": {
+        "x": 66,
+        "y": 353,
+        "width": 1304,
+        "height": 1437
+      }
+    },
+    {
+      "id": "ELD-MAIN-016",
+      "name": "parchment-background",
+      "category": "background",
+      "tags": [
+        "background",
+        "parchment",
+        "texture"
+      ],
+      "stackIndex": 15,
+      "sourceName": "Layer 29",
+      "sourceUuid": "D398F5BE-20CD-43C6-B4D0-AA18FBF6E99F",
+      "visible": true,
+      "opacity": 1.0,
+      "blendMode": 0,
+      "tileCount": 78,
+      "file": "layer-16.png",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 3120
+      }
+    }
+  ]
+}
