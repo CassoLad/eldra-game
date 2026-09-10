@@ -19,6 +19,34 @@ export const STORY_EVENTS: Record<string, StoryEvent> = {
         nextEventId: 'road_003',
         effects: { gold: 5, reputation: -1 },
       },
+      {
+        text: 'Enter Tavern',
+        nextEventId: 'tavern_inside_001',
+      },
+    ],
+  },
+  tavern_inside_001: {
+    id: 'tavern_inside_001',
+    title: 'The Forest Tavern',
+    text: 'Firelight warms the timbered room while quiet voices mingle beneath the rafters.',
+    imageRef: 'Inside the forest tavern',
+    choices: [
+      { text: 'Approach the innkeeper', nextEventId: 'tavern_inside_001' },
+      { text: 'Sit by the fire', nextEventId: 'tavern_inside_001' },
+      { text: 'Go Upstairs', nextEventId: 'tavern_upstairs_001' },
+      { text: 'Return outside', nextEventId: 'road_001' },
+    ],
+  },
+  tavern_upstairs_001: {
+    id: 'tavern_upstairs_001',
+    title: 'Upstairs at the Tavern',
+    text: 'The old stairs creak beneath your boots. A narrow landing leads past several quiet rooms.',
+    imageRef: 'Upstairs inside the forest tavern',
+    choices: [
+      { text: 'Search the landing', nextEventId: 'tavern_upstairs_001' },
+      { text: 'Listen at the door', nextEventId: 'tavern_upstairs_001' },
+      { text: 'Rest for a while', nextEventId: 'tavern_upstairs_001' },
+      { text: 'Go Downstairs', nextEventId: 'tavern_inside_001' },
     ],
   },
   road_002: {
