@@ -98,6 +98,28 @@ export const CHARACTERS: CharacterOption[] = [
       'Building advanced devices from relic components',
     ],
   },
+  {
+    accent: 'blue',
+    description: 'A steadfast fighter who protects companions and holds the line.',
+    discoveryRole: 'Faces danger directly when the road turns hostile.',
+    doodle: '⚔',
+    id: 'human-warrior',
+    name: 'Warrior',
+    role: 'Warrior',
+    species: 'Human',
+    strengths: ['Melee combat', 'Defending companions', 'Endurance'],
+  },
+  {
+    accent: 'plum',
+    description: 'A quiet wanderer who finds paths others overlook.',
+    discoveryRole: 'Slips through danger and uncovers hidden routes.',
+    doodle: '◇',
+    id: 'human-rogue',
+    name: 'Rogue',
+    role: 'Rogue',
+    species: 'Human',
+    strengths: ['Stealth', 'Quick movement', 'Finding hidden paths'],
+  },
 ];
 
 export const CHARACTER_PAIRINGS: CharacterPairing[] = [

@@ -64,5 +64,6 @@ function isFiniteNumber(value: unknown): value is number {
 function isJourneySelection(value: unknown): value is JourneySelection {
   if (!value || typeof value !== 'object') return false;
   const selection = value as Record<string, unknown>;
-  return ['worldId', 'characterId', 'traitId', 'pastId'].every(key => typeof selection[key] === 'string');
+  return ['worldId', 'characterId', 'traitId'].every(key => typeof selection[key] === 'string')
+    && (selection.pastId === undefined || typeof selection.pastId === 'string');
 }

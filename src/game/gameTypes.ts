@@ -30,5 +30,5 @@ export type JourneySelection = {
   worldId: string;
   characterId: string;
   traitId: string;
-  pastId: string;
+  pastId?: string;
 };
