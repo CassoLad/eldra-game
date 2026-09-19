@@ -37,6 +37,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+__pycache__/
+*.pyc
 
 example
 _vscode/

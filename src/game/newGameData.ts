@@ -65,6 +65,17 @@ export const CHARACTERS: CharacterOption[] = [
     ],
   },
   {
+    accent: 'blue',
+    description: 'A keen-eyed elf, skilled with bow and blade.',
+    discoveryRole: 'Scouts the road ahead and notices distant dangers before they reach the party.',
+    doodle: '🏹',
+    id: 'elf-archer',
+    name: 'Elf Archer',
+    role: 'Archer',
+    species: 'Elf',
+    strengths: ['Archery', 'High mobility', 'Nature bond'],
+  },
+  {
     accent: 'plum',
     description: 'A self-taught improviser who experiments with strange mechanisms and relics.',
     discoveryRole: 'Turns discoveries into practical experiments without understanding their technological origin.',

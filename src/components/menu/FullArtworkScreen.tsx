@@ -36,8 +36,10 @@ function CanvasContents({ assets, children, width = 853, height = 1844 }: Canvas
 }
 export function ArtworkImage({ source, style, accessibilityLabel }: { source: number; style?: StyleProp<ImageStyle>; accessibilityLabel?: string }) {
   const gate = useContext(ArtworkContext);
-  return <Image source={source} resizeMode="stretch" fadeDuration={0} accessibilityLabel={accessibilityLabel} accessible={Boolean(accessibilityLabel)}
-    onLoad={() => gate.loaded(source)} onError={gate.failed} style={[styles.image, style]} />;
+  return <View pointerEvents="none" style={styles.image}>
+    <Image source={source} resizeMode="stretch" fadeDuration={0} accessibilityLabel={accessibilityLabel} accessible={Boolean(accessibilityLabel)}
+      onLoad={() => gate.loaded(source)} onError={gate.failed} style={[styles.image, style]} />
+  </View>;
 }
 export type FullArtworkHotspotProps = {
   accessibilityLabel: string; disabled?: boolean; selected?: boolean;
