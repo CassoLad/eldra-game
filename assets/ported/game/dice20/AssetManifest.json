@@ -1,0 +1,116 @@
+{
+  "schema": "eldra.dice20.v1",
+  "source": "Gameplay Menu + Dice \u201c20",
+  "canvas": {
+    "width": 1440,
+    "height": 3120
+  },
+  "landingRect": {
+    "x": 547,
+    "y": 1720,
+    "width": 319,
+    "height": 280
+  },
+  "results": [
+    {
+      "result": 1,
+      "sourceLayer": 27,
+      "file": "roll-01.png"
+    },
+    {
+      "result": 2,
+      "sourceLayer": 26,
+      "file": "roll-02.png"
+    },
+    {
+      "result": 3,
+      "sourceLayer": 25,
+      "file": "roll-03.png"
+    },
+    {
+      "result": 4,
+      "sourceLayer": 24,
+      "file": "roll-04.png"
+    },
+    {
+      "result": 5,
+      "sourceLayer": 23,
+      "file": "roll-05.png"
+    },
+    {
+      "result": 6,
+      "sourceLayer": 22,
+      "file": "roll-06.png"
+    },
+    {
+      "result": 7,
+      "sourceLayer": 21,
+      "file": "roll-07.png"
+    },
+    {
+      "result": 8,
+      "sourceLayer": 20,
+      "file": "roll-08.png"
+    },
+    {
+      "result": 9,
+      "sourceLayer": 19,
+      "file": "roll-09.png"
+    },
+    {
+      "result": 10,
+      "sourceLayer": 18,
+      "file": "roll-10.png"
+    },
+    {
+      "result": 11,
+      "sourceLayer": 17,
+      "file": "roll-11.png"
+    },
+    {
+      "result": 12,
+      "sourceLayer": 16,
+      "file": "roll-12.png"
+    },
+    {
+      "result": 13,
+      "sourceLayer": 15,
+      "file": "roll-13.png"
+    },
+    {
+      "result": 14,
+      "sourceLayer": 14,
+      "file": "roll-14.png"
+    },
+    {
+      "result": 15,
+      "sourceLayer": 13,
+      "file": "roll-15.png"
+    },
+    {
+      "result": 16,
+      "sourceLayer": 12,
+      "file": "roll-16.png"
+    },
+    {
+      "result": 17,
+      "sourceLayer": 11,
+      "file": "roll-17.png"
+    },
+    {
+      "result": 18,
+      "sourceLayer": 10,
+      "file": "roll-18.png"
+    },
+    {
+      "result": 19,
+      "sourceLayer": 9,
+      "file": "roll-19.png"
+    },
+    {
+      "result": 20,
+      "sourceLayer": 8,
+      "file": "roll-20.png"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "schema": "eldra.inventory-equipment.v1",
+  "source": "Inventory Menu 1.2 (Solo)",
+  "canvas": {
+    "width": 1440,
+    "height": 3120
+  },
+  "inventory": {
+    "file": "ELD-IE12-Inventory.png",
+    "bbox": [
+      20,
+      6,
+      1402,
+      2609
+    ]
+  },
+  "equipment": {
+    "file": "ELD-IE12-Equipment.png",
+    "bbox": [
+      142,
+      1218,
+      1161,
+      3120
+    ]
+  },
+  "layers": [
+    {
+      "id": "ELD-IE12-001",
+      "name": "Text 1",
+      "order": 0
+    },
+    {
+      "id": "ELD-IE12-002",
+      "name": "Layer 95",
+      "order": 1
+    },
+    {
+      "id": "ELD-IE12-004",
+      "name": "Inserted Image",
+      "order": 3
+    },
+    {
+      "id": "ELD-IE12-005",
+      "name": "Text 5",
+      "order": 4
+    },
+    {
+      "id": "ELD-IE12-007",
+      "name": "Layer 72",
+      "order": 6
+    },
+    {
+      "id": "ELD-IE12-008",
+      "name": "Text 8",
+      "order": 7
+    },
+    {
+      "id": "ELD-IE12-009",
+      "name": "Text 9",
+      "order": 8
+    },
+    {
+      "id": "ELD-IE12-010",
+      "name": "Text 10",
+      "order": 9
+    },
+    {
+      "id": "ELD-IE12-012",
+      "name": "Text 12",
+      "order": 11
+    },
+    {
+      "id": "ELD-IE12-013",
+      "name": "Inserted Image",
+      "order": 12
+    },
+    {
+      "id": "ELD-IE12-014",
+      "name": "Text 14",
+      "order": 13
+    },
+    {
+      "id": "ELD-IE12-015",
+      "name": "Text 15",
+      "order": 14
+    },
+    {
+      "id": "ELD-IE12-017",
+      "name": "Inserted Image",
+      "order": 16
+    },
+    {
+      "id": "ELD-IE12-018",
+      "name": "Inserted Image",
+      "order": 17
+    },
+    {
+      "id": "ELD-IE12-019",
+      "name": "Text 19",
+      "order": 18
+    },
+    {
+      "id": "ELD-IE12-020",
+      "name": "Inserted Image",
+      "order": 19
+    },
+    {
+      "id": "ELD-IE12-021",
+      "name": "Inserted Image",
+      "order": 20
+    },
+    {
+      "id": "ELD-IE12-022",
+      "name": "Layer 53",
+      "order": 21
+    },
+    {
+      "id": "ELD-IE12-023",
+      "name": "Layer 53",
+      "order": 22
+    },
+    {
+      "id": "ELD-IE12-024",
+      "name": "Layer 53",
+      "order": 23
+    },
+    {
+      "id": "ELD-IE12-025",
+      "name": "Layer 53",
+      "order": 24
+    },
+    {
+      "id": "ELD-IE12-026",
+      "name": "Inserted Image",
+      "order": 25
+    },
+    {
+      "id": "ELD-IE12-027",
+      "name": "Layer 52",
+      "order": 26
+    },
+    {
+      "id": "ELD-IE12-028",
+      "name": "Inserted Image",
+      "order": 27
+    },
+    {
+      "id": "ELD-IE12-029",
+      "name": "Inserted Image",
+      "order": 28
+    },
+    {
+      "id": "ELD-IE12-031",
+      "name": "Inserted Image",
+      "order": 30
+    },
+    {
+      "id": "ELD-IE12-032",
+      "name": "Inserted Image",
+      "order": 31
+    },
+    {
+      "id": "ELD-IE12-033",
+      "name": "Inserted Image",
+      "order": 32
+    },
+    {
+      "id": "ELD-IE12-035",
+      "name": "Inserted Image",
+      "order": 34
+    },
+    {
+      "id": "ELD-IE12-036",
+      "name": "Inserted Image",
+      "order": 35
+    },
+    {
+      "id": "ELD-IE12-037",
+      "name": "Inserted Image",
+      "order": 36
+    },
+    {
+      "id": "ELD-IE12-038",
+      "name": "Inserted Image",
+      "order": 37
+    },
+    {
+      "id": "ELD-IE12-039",
+      "name": "Inserted Image",
+      "order": 38
+    },
+    {
+      "id": "ELD-IE12-040",
+      "name": "Layer 88",
+      "order": 39
+    },
+    {
+      "id": "ELD-IE12-041",
+      "name": "Inserted Image",
+      "order": 40
+    },
+    {
+      "id": "ELD-IE12-042",
+      "name": "Layer 99",
+      "order": 41
+    }
+  ]
+}
